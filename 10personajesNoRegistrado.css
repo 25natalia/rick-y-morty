@@ -1,0 +1,350 @@
+nav {
+    background-color: WHITE;
+    display: flex;
+    width: 100%-40px;
+    justify-content: start;
+    height: 70px;
+    align-items: center;
+    padding: 0px 40px;
+    font-family:'Heebo', sans-serif;
+}
+#navegacion{
+    width: 100%;
+}
+.link{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 40%;
+    width: 60%;
+}
+.linknav {
+    color: #04adc6;
+    cursor: pointer;
+    transition: .2s ease all;
+    text-decoration:none;
+}
+.linknav:hover{ 
+    color:#45c638;
+}
+#sn{
+    color:#45c638;
+    cursor: pointer;
+    transition: .2s ease all;
+    text-decoration:none;
+}
+#username {
+    margin-top: 1%;
+    background-color: #d3dfe6;
+    border: 0px;
+    border-radius: 25px;
+    padding: 10px 20px 7px 10px;
+    font-weight: bold;
+    width: 100px;
+    height: 20px;
+}
+
+
+
+body {
+    background-color: #04adc6;
+    background-size: cover;
+    font-family: 'Heebo', sans-serif;
+    margin: 0px;
+}
+
+#todo {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#forms {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    /**/
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 25px;
+    min-width: 200px;
+    min-height: 300px;
+    margin: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#arriba {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.contenidoarriba {
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p {
+    color: #999999;
+    font-size: 18px;
+}
+
+a {
+    color: rgb(67, 197, 60);
+    font-size: 18px;
+}
+
+#linknav {
+    color: #04adc6;
+}
+
+#infocentro {
+    width: 100%;
+
+}
+
+.centro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    gap: 3%;
+    width: 20%;
+}
+
+.icon>img {
+    width: 20%;
+    height: 100%;
+}
+
+.icon>p {
+    width: 80%;
+}
+
+#infoabajo {
+    display: flex;
+    justify-content: center;
+}
+
+#registro {
+    display: flex;
+    justify-content: center;
+}
+.otracuenta{
+    margin: 0;
+}
+.redes{
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40px;
+}
+
+
+/* personajes */
+
+.contenidoPersonajes {
+color: white;
+margin-top: 5%;
+}
+
+.todo {
+    padding: 0 5%;
+}
+.arriba{
+    display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.arriba>a>img{
+    width: 100%;
+    height: auto;
+}
+
+
+.arriba > h1{
+    font-size: 60px;
+    margin-top: 0;
+}
+
+.personajesContainer{
+    justify-content: space-between;
+    display: flex;
+    padding: 60px 0;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    width: 100%;
+    margin-right: 20px;
+}
+
+.carrusel {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.personaje{
+background-color: white;
+border-radius: 15px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+color: #3CC542;
+text-align: left;
+text-decoration: none;
+vertical-align: top;
+margin-right: 60px;
+width: 222px;
+height: 300px;
+}
+
+.personaje>img{
+    width: fit-content;
+    height: 280px;
+    margin-top: -40%;
+}
+
+.personajesContainer .carrusel img{
+    margin-top: -20px;
+
+}
+
+/* merch */
+
+.merch{
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #3CC542;
+    text-align: left;
+    text-decoration: none;
+    vertical-align: top;
+    margin-right: 60px;
+    width: 230px;
+    height: 280px;
+    padding-top: 2%;
+    }
+    
+    .merch>img{
+        width: fit-content;
+        height: 197px;
+        margin-top: 100%;
+        padding-bottom: 200;
+        margin-bottom: -5%;
+    }
+    
+    .personajesContainer .carrusel img{
+        margin-top: 0px;
+    
+    }
+
+/* capitulos */
+
+.capitulos{
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #3CC542;
+    text-align: left;
+    text-decoration: none;
+    vertical-align: top;
+    margin-right: 60px;
+    width: 222px;
+    height: 280px;
+    padding-top: 2%;
+    }
+    
+    .capitulos>img{
+        width: fit-content;
+        height: 197px;
+        margin-top: 100%;
+        padding-bottom: 200;
+        margin-bottom: -5%;
+    }
+    
+    .personajesContainer .carrusel img{
+        margin-top: 0px;
+    
+    }
+
+/* #morty{
+    width: 40%;
+}
+#jerry{
+    width: 70%;
+} */
+
+.hidden {
+    display: none;
+}
+
+.descripPersonaje {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+    font-size: 22px;
+    margin-top: 8px;
+    margin-bottom: 40px;
+    
+}
+
+.descripPersonaje>h4 {
+    margin: 0;
+}
+
+.descripPersonaje> img{
+    width: 15%;
+    height: fit-content;
+}
+
+.hoodie, .comic{
+    margin-top: 0 !important;
+    height: 197px !important;
+}
+
+.comic{
+    height: 170px !important;
+    padding-top: 20px;
+}
+
+footer {
+    height: 10vh;
+}
+
+.descripExtras {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+    font-size: 22px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    
+}
+
+.descripExtras>h4 {
+    margin: 0;
+}
+
+.descripExtras> img{
+    width: 15%;
+    height: fit-content;
+}

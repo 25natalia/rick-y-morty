@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: url(imagen-fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-color: #00afc9;
+}
+nav {
+    background-color: WHITE;
+    display: flex;
+    width: 100%-40px;
+    justify-content: start;
+    height: 70px;
+    align-items: center;
+    padding: 0px 40px;
+    font-family:'Heebo', sans-serif;
+    font-family: 'open sans', sans-serif;
+}
+#navegacion{
+    width: 100%;
+}
+.link{
+    display: flex;
+    justify-content: end;
+    margin-left: 50%;
+    width: 35%;
+}
+#linknav {
+    color: #04adc6;
+    cursor: pointer;
+    transition: .2s ease all;
+    margin-left: 70px;
+    text-decoration: none ;
+}
+#linknav:hover{ 
+    color: #45c638;
+}
+.recuadro{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    background-color: #cceff5;
+    border-radius: 5px;
+    position: absolute;
+    margin-top: 155px;
+    top: 63%;
+    left: 63%;
+    width: 400px;
+}
+a {
+    font-family:'Heebo', sans-serif;
+}
+h1 {
+    font-family:'Heebo', sans-serif;
+    color: #08879a;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-size: 45px;
+}
+
+h2 {
+    font-family: 'Heebo', sans-serif;
+    color: #00afc9;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+input {
+    width: 300px;
+    height: 35px;
+    border-radius: 40px;
+    border-width: 0px;
+    background-color: #8ddde5;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    color: #0b4b5a;
+}
+::placeholder {
+    color: rgba(0, 133, 153, 50%);
+    padding-left: 20px;
+    font-size: 14px;
+}
+.entradas :hover {
+    border-color: #08879a;
+}
+.entradas{
+    color: white;
+}
+.Iniciar-sesion-boton {
+    margin-top: 15px;
+    height: 38px;
+    width: 180px;
+    border-radius: 10px;
+    background-color: #00d044;
+    color: white;
+    border-width: 0;
+    border-color: #00d044;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.contraseña {
+    color: #44bdd2;
+    font-size: 16px;
+    margin-top: 13px;
+    text-decoration: none;
+}
+.unete {
+    color: #44bdd2;
+    font-size: 16px;
+    margin-top: 13px;
+    text-decoration: none;
+    margin-bottom: 30px;
+}
+
+.ingresa-contraseña{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.ingresa-email{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

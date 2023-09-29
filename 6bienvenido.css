@@ -1,0 +1,94 @@
+nav {
+    background-color: WHITE;
+    display: flex;
+    width: 100%-40px;
+    justify-content: start;
+    height: 100%;
+    align-items: center;
+    padding: 0px 20px;
+}
+#navegacion{
+    width: 100%;
+}
+.link{
+    display: flex;
+    justify-content: space-evenly;
+    width: 35%;
+    margin-left: 35%;
+}
+#busqueda {
+    background-color: #04adc6;
+    border: 0px;
+    border-radius: 25px;
+    background-image: url("./lupa.png");
+    background-size: 25px;
+    background-position: 7px 5px;
+    background-repeat: no-repeat;
+    padding: 10px 20px 7px 50px;
+    color: white;
+    margin-right:20px ;
+    
+}
+
+#linknav:hover{ 
+    color: #45c638;
+}
+#linknav {
+    color: #04adc6;
+    cursor: pointer;
+    transition:.2seaseall;
+    text-decoration:none;
+}
+::placeholder {
+    color: white;
+    font-size: 18px;
+}
+
+#perfil {
+    height: 65px;
+    width: 65px;
+    /* los siguientes valores son independientes del tamaño del círculo */
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 150% auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+body{
+    background-color: #04b0c6;
+    background-size: cover;
+font-family: 'Heebo', sans-serif;
+font-family: 'Open Sans', sans-serif;
+    margin: 0px;
+}
+h1{
+color: rgb(252, 252, 252);
+margin-left: 10%;
+margin-top: 45%;
+margin-right: 5%;
+}
+.button1, .button2{
+    margin-top: 20px;
+    background: #45c638;
+    border: none;
+    border-radius: 30px;
+    padding: 0.93em 1.87em;
+    color: #FFF;
+    margin-right: 1.25em;
+    font-size: 1.12em;
+    margin-left: 10%;
+    cursor: pointer;
+    transition: .2s ease all;
+}
+.button1:hover,.button2:hover{ 
+    background: #FFF;
+    color: #04b0c6;
+}
+
+.img{
+    width: 100%;
+}
+.cuerpo{
+    display: flex;
+}
