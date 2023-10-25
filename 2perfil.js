@@ -8,16 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
         usuarioButton.textContent = storedUsuario;
     }
 
-    //Email
-    // Obtén el correo electrónico del almacenamiento local
+    // Email
     const storedEmail = localStorage.getItem("email");
 
-    // Verifica si el correo electrónico se encuentra en el almacenamiento local
     if (storedEmail) {
-        // Selecciona el elemento por su ID
         const emailPlaceholder = document.getElementById("email-placeholder");
-
-        // Actualiza el contenido del elemento con el correo electrónico almacenado
         emailPlaceholder.textContent = storedEmail;
     }
 
@@ -45,24 +40,64 @@ const openModalBtn = document.getElementById("openModalBtn");
 const closeModalBtn = document.getElementById("closeModalBtn");
 const modal = document.getElementById("myModal");
 const guardarCambiosBtn = document.getElementById("guardar-cambios");
+const emailInput = document.getElementById("input");
 
 //telefono
 const openModalBtn2 = document.getElementById("openModalBtn2");
 const closeModalBtn2 = document.getElementById("closeModalBtn2");
 const modal2 = document.getElementById("myModal2");
 const guardarCambiosBtn2 = document.getElementById("guardar-cambios2");
+const telefonoInput = document.getElementById("input2");
 
 //contrasena
 const openModalBtn3 = document.getElementById("openModalBtn3");
 const closeModalBtn3 = document.getElementById("closeModalBtn3");
 const modal3 = document.getElementById("myModal3");
 const guardarCambiosBtn3 = document.getElementById("guardar-cambios3");
+const contrasenaInput = document.getElementById("input3");
 
 //usuario
 const openModalBtn4 = document.getElementById("username");
 const closeModalBtn4 = document.getElementById("closeModalBtn4");
 const modal4 = document.getElementById("myModal4");
 const guardarCambiosBtn4 = document.getElementById("guardar-cambios4");
+const usuarioInput = document.getElementById("input4");
+
+guardarCambiosBtn.addEventListener("click", () => {
+    const email = emailInput.value;
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailPattern.test(email)) {
+        alert("Por favor, ingresa una dirección de correo electrónico válida.");
+        return;
+    }
+});
+
+guardarCambiosBtn2.addEventListener("click", () => {
+    const telefono = telefonoInput.value;
+    const telefonoPattern = /^\d+$/;
+    if (!telefonoPattern.test(telefono) || telefono.length !== 10) {
+        alert("El número de teléfono debe contener exactamente 10 números.");
+        return;
+    }
+});
+
+guardarCambiosBtn3.addEventListener("click", () => {
+    const contrasena = contrasenaInput.value;
+    const contrasenaPattern = /\d/.test(contrasena);
+    const contrasenaCapital= /[A-Z]/.test(contrasena);
+    if (contrasena.length <= 8 || !contrasenaPattern.test(contrasena) || !contrasenaCapital.test(contrasena) ) {
+        alert("La contraseña debe tener al menos 8 caracteres con al menos un número y al menos una letra mayúscula.");
+        return;
+    }
+});
+
+guardarCambiosBtn4.addEventListener("click", () => {
+    const usuario = usuarioInput.value;
+    if (usuario.length < 6 || usuario.length > 12(usuario)) {
+        alert("El usuario debe tener entre 6 y 12 caracteres.");
+        return;
+    }
+});
 
 //email
 openModalBtn.addEventListener("click", () => {
@@ -82,6 +117,7 @@ window.addEventListener("click", (event) => {
 guardarCambiosBtn.addEventListener("click", () => {
     modal.style.display = "none";
 });
+
 
 
 //telefono
@@ -132,7 +168,7 @@ closeModalBtn4.addEventListener("click", () => {
 });
 
 window.addEventListener("click", (event) => {
-    if (event.target === modal) {
+    if (event.target === modal4) {
         modal4.style.display = "none";
     }
 });

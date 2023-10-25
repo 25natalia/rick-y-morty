@@ -29,22 +29,23 @@ nav {
     margin-right:20px ;
     
 }
-#input, #input2, #input3{
+#input, #input2, #input3, #input4{
     margin-bottom: 15px;
     height: 30px;
     width: 300px;
     border-radius: 30px;
     border-style:none;
     padding-left: 20px;
+    margin-bottom: 35px;
 }
 
-#input::placeholder, #input2::placeholder, #input3::placeholder{
+#input::placeholder, #input2::placeholder, #input3::placeholder, #input4::placeholder{
     color: #939393;
 font-size: 14px;
 padding-left: 20px;
 }
 
-#openModalBtn, #openModalBtn2, #openModalBtn3{
+#openModalBtn, #openModalBtn2, #openModalBtn3, #username{
     background-color: #45c638;
     color: #fff;
     border-radius: 30px;
@@ -57,7 +58,7 @@ padding-left: 20px;
     text-decoration: none;
     border-style:none;
 }
-#openModalBtn:hover, #openModalBtn2:hover, #openModalBtn3:hover{
+#openModalBtn:hover, #openModalBtn2:hover, #openModalBtn3:hover, #openModalBtn4:hover{
     background-color: #04adc6;
     color: white;
 }
@@ -69,7 +70,7 @@ padding-left: 20px;
     flex-direction: column;
 }
 
-.modal, .modal2, .modal3 {
+.modal, .modal2, .modal3, .modal4 {
     display: none;
     position: fixed;
     top: 0;
@@ -80,7 +81,7 @@ padding-left: 20px;
     z-index: 1;
 }
 
-.modal-content, .modal-content2, .modal-content3 {
+.modal-content, .modal-content2, .modal-content3, .modal-content4 {
     background-color:#04adc6;
     padding: 20px;
     border-radius: 15px;
@@ -95,6 +96,7 @@ padding-left: 20px;
 .contenido {
     margin-top: 20px;
     color: white;
+    height: 165px;
 }
 
 .close {
@@ -107,7 +109,7 @@ padding-left: 20px;
     margin-right: 7px;
 }
 
-#guardar-cambios, #guardar-cambios2, #guardar-cambios3{
+#guardar-cambios, #guardar-cambios2, #guardar-cambios3, #guardar-cambios4{
     background-color: #45c638;
     color: #fff;
     border-radius: 30px;
@@ -118,15 +120,15 @@ padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     text-decoration: none;
-
+    margin: 0px;
 }
-#guardar-cambios:hover, #guardar-cambios2:hover, #guardar-cambios3:hover{
+
+#guardar-cambios:hover, #guardar-cambios2:hover, #guardar-cambios3:hover, #guardar-cambios4:hover{
     background-color: #fff;
     color: #04adc6;
     font-style: none;
     text-decoration: none;
 }
-
 
 #linknav:hover{ 
     color: #45c638;
