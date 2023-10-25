@@ -1,14 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
     const registroForm = document.getElementById("registro-form");
-    const emailInput = document.getElementById("registro-email");
-    const telefonoInput = document.getElementById("registro-telefono");
 
     registroForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        const email = emailInput.value;
+        const email = document.getElementById("registro-email").value;
         const usuario = document.getElementById("registro-usuario").value;
-        const telefono = telefonoInput.value;
+        const telefono = document.getElementById("registro-telefono").value;
         const contrasena = document.getElementById("registro-contrasena").value;
 
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -33,9 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("telefono", telefono);
         localStorage.setItem("contrasena", contrasena);
 
-        emailInput.value = "";
+        document.getElementById("registro-email").value = "";
         document.getElementById("registro-usuario").value = "";
-        telefonoInput.value = "";
+        document.getElementById("registro-telefono").value = "";
         document.getElementById("registro-contrasena").value = "";
 
         window.location.href = "./6Bienvenido.html";

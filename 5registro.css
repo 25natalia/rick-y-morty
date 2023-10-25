@@ -122,20 +122,7 @@ form {
     margin-bottom: 30px;
 }
 
-.ingresa-contraseña{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.ingresa-email{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.ingresa-usuario {
+.ingresa{
     display: flex;
     justify-content: center;
     align-items: center;
