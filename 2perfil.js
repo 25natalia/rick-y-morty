@@ -72,14 +72,26 @@ guardarCambiosBtn.addEventListener("click", () => {
         return;
     }
 
-    // Actualiza el valor del correo electrónico en el almacenamiento local
     localStorage.setItem("email", email);
 
-    // Refleja el valor actualizado en el elemento "email-placeholder"
     const emailPlaceholder = document.getElementById("email-placeholder");
     emailPlaceholder.textContent = email;
 });
 
+guardarCambiosBtn2.addEventListener("click", () => {
+    const telefono = telefonoInput.value;
+    const telefonoPattern = /^\d+$/;
+    
+    if (!telefonoPattern.test(telefono) || telefono.length !== 10) {
+        alert("El número de teléfono debe contener exactamente 10 números.");
+        return;
+    }
+
+    localStorage.setItem("telefono", telefono);
+
+    const telefonoPlaceholder = document.getElementById("telefono-placeholder");
+    telefonoPlaceholder.textContent = telefono;
+});
 
 
 guardarCambiosBtn3.addEventListener("click", () => {
@@ -92,10 +104,8 @@ guardarCambiosBtn3.addEventListener("click", () => {
         return;
     }
 
-    // Actualiza el valor de la contraseña en el almacenamiento local
     localStorage.setItem("contrasena", contrasena);
 
-    // Refleja el valor actualizado en el elemento "contrasena-placeholder"
     const contrasenaPlaceholder = document.getElementById("contrasena-placeholder");
     contrasenaPlaceholder.textContent = contrasena;
 });
@@ -106,11 +116,7 @@ guardarCambiosBtn4.addEventListener("click", () => {
         alert("El usuario debe tener entre 6 y 12 caracteres.");
         return;
     }
-
-    // Actualiza el valor del nombre de usuario en el almacenamiento local
     localStorage.setItem("usuario", usuario);
-
-    // Refleja el valor actualizado en el elemento "username"
     const usuarioButton = document.getElementById("username");
     usuarioButton.textContent = usuario;
 });
@@ -130,12 +136,6 @@ window.addEventListener("click", (event) => {
     }
 });
 
-guardarCambiosBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-});
-
-
-
 //telefono
 openModalBtn2.addEventListener("click", () => {
     modal2.style.display = "block";
@@ -149,10 +149,6 @@ window.addEventListener("click", (event) => {
     if (event.target === modal2) {
         modal2.style.display = "none";
     }
-});
-
-guardarCambiosBtn2.addEventListener("click", () => {
-    modal2.style.display = "none";
 });
 
 //contrasena
@@ -170,10 +166,6 @@ window.addEventListener("click", (event) => {
     }
 });
 
-guardarCambiosBtn3.addEventListener("click", () => {
-    modal3.style.display = "none";
-});
-
 //usuario
 username.addEventListener("click", () => {
     modal4.style.display = "block";
@@ -188,9 +180,3 @@ window.addEventListener("click", (event) => {
         modal4.style.display = "none";
     }
 });
-
-guardarCambiosBtn4.addEventListener("click", () => {
-    modal4.style.display = "none";
-});
-
-
