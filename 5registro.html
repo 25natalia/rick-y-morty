@@ -18,26 +18,32 @@
         </nav>
     </div>
     <div class="recuadro">
-        <h1>Registrate</h1>
-    <form>
-        <div class="ingresa-email">
-        <h2>E-mail</h2>
-        <input type="text" placeholder="Ingresa tu e-mail" class="entradas" required>
-        </div>
-
-        <div class="ingresa-usuario">
-            <h2>Usuario</h2>
-            <input type="text" placeholder="Ingresa tu usuario" class="entradas" required>
+        <h1>Regístrate</h1>
+        <form id="registro-form">
+            <div class="ingresa-email">
+                <h2>E-mail</h2>
+                <input type="text" id="registro-email" placeholder="Ingresa tu e-mail" class="entradas" required>
             </div>
-
-        <div class="ingresa-contraseña">
-            <h2>Contraseña</h2>
-            <input type="password" placeholder="Ingresa tu contraseña" class="entradas" required>
-        </div>
-        <a href="./6Bienvenido.html"><input type="submit" value="Crear cuenta" class="Iniciar-sesion-boton"></a>
-    </form>
+    
+            <div class="ingresa-usuario">
+                <h2>Usuario</h2>
+                <input type="text" id="registro-usuario" placeholder="Ingresa tu usuario" class="entradas" required>
+            </div>
+           
+            <div class="ingresa-telefono">
+                <h2>Número de teléfono</h2>
+                <input type="text" id="registro-telefono" placeholder="Ingresa tu número de teléfono" class="entradas" required>
+            </div>
+    
+            <div class="ingresa-contraseña">
+                <h2>Contraseña</h2>
+                <input type="password" id="registro-contrasena" placeholder="Ingresa tu contraseña" class="entradas" required>
+            </div>
+            <button type="submit" class="Iniciar-sesion-boton">Crear cuenta</button>
+        </form>
         <a href="./4Inicio-sesion.html" class="unete">¿Ya eres usuario? Inicia sesión</a>
     </div>
- <script src="https://kit.fontawesome.com/f453d0fc9e.js" crossorigin="anonymous"></script>
+    <script src="./5registro.js"></script>
+    <script src="https://kit.fontawesome.com/f453d0fc9e.js" crossorigin="anonymous"></script>
 </body>
 </html>
