@@ -1,30 +1,42 @@
 document.addEventListener("DOMContentLoaded", function () {
     
-    //Email
+    // Usuario
+    const storedUsuario = localStorage.getItem("usuario");
 
+    if (storedUsuario) {
+        const usuarioButton = document.getElementById("username");
+        usuarioButton.textContent = storedUsuario;
+    }
+    
+    //Email
     // Obtén el correo electrónico del almacenamiento local
     const storedEmail = localStorage.getItem("email");
 
     // Verifica si el correo electrónico se encuentra en el almacenamiento local
     if (storedEmail) {
-        // Selecciona el elemento <p> por su ID
+        // Selecciona el elemento por su ID
         const emailPlaceholder = document.getElementById("email-placeholder");
 
-        // Actualiza el contenido del elemento <p> con el correo electrónico almacenado
+        // Actualiza el contenido del elemento con el correo electrónico almacenado
         emailPlaceholder.textContent = storedEmail;
     }
 
-    //Usuario
-    const storedUser = localStorage.getItem("usuario");
+    //Telefono
+    const storedTelefono = localStorage.getItem("telefono");
 
-    // Verifica si el correo electrónico se encuentra en el almacenamiento local
-    if (storedUser) {
-        // Selecciona el elemento <p> por su ID
-        const UserPlaceholder = document.getElementById("username");
-
-        // Actualiza el contenido del elemento <p> con el correo electrónico almacenado
-        UserPlaceholder.textContent = storedUser;
+    if (storedTelefono) {
+        const telefonoPlaceholder = document.getElementById("telefono-placeholder");
+        telefonoPlaceholder.textContent = storedTelefono;
     }
+
+    //Contrasena
+    const storedContrasena = localStorage.getItem("contrasena");
+
+    if (storedContrasena) {
+        const contrasenaPlaceholder = document.getElementById("contrasena-placeholder");
+        contrasenaPlaceholder.textContent = storedContrasena;
+    }
+
 });
 
 
