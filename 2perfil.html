@@ -34,23 +34,23 @@
                 </div>
                 <div id="perfil2" style="background-image: url(./foto\ pp\ rick.avif )"></div>
                 <div class="contenidoarriba">
-                    <p>Nombre de usuario</p> <input type="Username" placeholder="tiago123" id="username">
+                    <p>Nombre de usuario</p> <button id="username"></button>
                 </div>
             </div>
             <div id="infocentro">
                 <div class="centro">
                     <div class="icon"><img src="./sobre.png" alt="">
-                        <p id="email-placeholder">Tiago123456@gmail.com</p>
+                        <p id="email-placeholder"></p>
                     </div><button id="openModalBtn">Actualizar Email</button>
                 </div>
                 <div class="centro">
                     <div class="icon"><img src="./telefono.png" alt="">
-                        <p>+573015476758</p>
+                        <p id="telefono-placeholder"></p>
                     </div> <button id="openModalBtn2">Actualizar número de teléfono</button>
                 </div>
                 <div class="centro">
                     <div class="icon"><img src="./candado.png" alt="">
-                        <p>***************</p>
+                        <p id="contrasena-placeholder"></p>
                     </div> <button id="openModalBtn3">Cambiar contraseña</button>
                 </div>
             </div>
@@ -99,6 +99,18 @@
     </form>
     </div>
 </div>
+
+<div id="myModal4" class="modal4" style="display: none;">
+    <div class="modal-content4">
+        <span class="close" id="closeModalBtn4">&times;</span>
+        <form  class="contenido">
+        <h2>Ingresa tu nueva dirección de correo</h2>
+        <input required type="user" id="input" placeholder="pollo123">
+        <a href="./2perfil.html"><submit id="guardar-cambios4">Guardar cambios</submit></a>
+    </form>
+    </div>
+</div>
+
 
 </body>
 <script src="./2perfil.js"></script>

@@ -15,13 +15,18 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        const phonePattern = /^\d+$/;
-        if (!phonePattern.test(telefono)) {
-            alert("El número de teléfono solo debe contener números.");
+        if (usuario.length < 6 || usuario.length > 12) {
+            alert("El usuario debe tener entre 6 y 12 caracteres.");
             return;
         }
+        
+        const phonePattern = /^\d+$/;
+    if (!phonePattern.test(telefono) || telefono.length !== 10) {
+        alert("El número de teléfono debe contener exactamente 10 números.");
+        return;
+    }
 
-        if (contrasena.length < 8 || !/\d/.test(contrasena) || !/[A-Z]/.test(contrasena)) {
+        if (contrasena.length <= 8 || !/\d/.test(contrasena) || !/[A-Z]/.test(contrasena)) {
             alert("La contraseña debe tener al menos 8 caracteres con al menos un número y al menos una letra mayúscula.");
             return;
         }
