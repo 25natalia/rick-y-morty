@@ -40,18 +40,18 @@
             <div id="infocentro">
                 <div class="centro">
                     <div class="icon"><img src="./sobre.png" alt="">
-                        <p>Tiago123456@gmail.com</p>
-                    </div><a href="">Actualizar email</a>
+                        <p id="email-placeholder">Tiago123456@gmail.com</p>
+                    </div><button id="openModalBtn">Actualizar Email</button>
                 </div>
                 <div class="centro">
                     <div class="icon"><img src="./telefono.png" alt="">
                         <p>+573015476758</p>
-                    </div> <a href="">Actualizar número de teléfono</a>
+                    </div> <button id="openModalBtn2">Actualizar número de teléfono</button>
                 </div>
                 <div class="centro">
                     <div class="icon"><img src="./candado.png" alt="">
                         <p>***************</p>
-                    </div> <a href="">Cambiar contraseña</a>
+                    </div> <button id="openModalBtn3">Cambiar contraseña</button>
                 </div>
             </div>
             <div id="infoabajo">
@@ -65,7 +65,43 @@
                 <a href="./5registro.html"><img src="./Facebook_f_logo_(2019).svg.webp" width="50px" height="50px"></a>
             </div>
         </div>
+        
+<div id="myModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close" id="closeModalBtn">&times;</span>
+        <form  class="contenido">
+        <h2>Ingresa tu nueva dirección de correo</h2>
+        <input required type="email" id="input" placeholder="ejemplo@rickymorty.com">
+        <a href="./2perfil.html"><submit id="guardar-cambios">Guardar cambios</submit></a>
+    </form>
+    </div>
+</div>
+
+<div id="myModal2" class="modal2" style="display: none;">
+    <div class="modal-content2">
+        <span class="close" id="closeModalBtn2">&times;</span>
+        <form class="contenido">
+            <h2>Ingresa tu nuevo número de teléfono</h2>
+            <input type="number" placeholder="1234567890" required id="input2">
+            <a href="./2perfil.html"><submit id="guardar-cambios2">Guardar cambios</submit></a>
+        </form>
+    </div>
+</div>
+
+
+<div id="myModal3" class="modal3" style="display: none;">
+    <div class="modal-content3">
+        <span class="close" id="closeModalBtn3">&times;</span>
+        <form  class="contenido">
+        <h2>Ingresa tu nueva contraseña</h2>
+        <input required type="password" id="input3" placeholder="Contrasena123">
+        <a href="./2perfil.html"><submit id="guardar-cambios3">Guardar cambios</submit></a>
+    </form>
+    </div>
+</div>
+
 </body>
+<script src="./2perfil.js"></script>
 <script src="https://kit.fontawesome.com/f453d0fc9e.js" crossorigin="anonymous"></script>
 
 </html>
