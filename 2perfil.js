@@ -66,37 +66,53 @@ const usuarioInput = document.getElementById("input4");
 guardarCambiosBtn.addEventListener("click", () => {
     const email = emailInput.value;
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    
     if (!emailPattern.test(email)) {
         alert("Por favor, ingresa una dirección de correo electrónico válida.");
         return;
     }
+
+    // Actualiza el valor del correo electrónico en el almacenamiento local
+    localStorage.setItem("email", email);
+
+    // Refleja el valor actualizado en el elemento "email-placeholder"
+    const emailPlaceholder = document.getElementById("email-placeholder");
+    emailPlaceholder.textContent = email;
 });
 
-guardarCambiosBtn2.addEventListener("click", () => {
-    const telefono = telefonoInput.value;
-    const telefonoPattern = /^\d+$/;
-    if (!telefonoPattern.test(telefono) || telefono.length !== 10) {
-        alert("El número de teléfono debe contener exactamente 10 números.");
-        return;
-    }
-});
+
 
 guardarCambiosBtn3.addEventListener("click", () => {
     const contrasena = contrasenaInput.value;
     const contrasenaPattern = /\d/.test(contrasena);
-    const contrasenaCapital= /[A-Z]/.test(contrasena);
-    if (contrasena.length <= 8 || !contrasenaPattern.test(contrasena) || !contrasenaCapital.test(contrasena) ) {
+    const contrasenaCapital = /[A-Z]/.test(contrasena);
+
+    if (contrasena.length <= 8 || !contrasenaPattern || !contrasenaCapital) {
         alert("La contraseña debe tener al menos 8 caracteres con al menos un número y al menos una letra mayúscula.");
         return;
     }
+
+    // Actualiza el valor de la contraseña en el almacenamiento local
+    localStorage.setItem("contrasena", contrasena);
+
+    // Refleja el valor actualizado en el elemento "contrasena-placeholder"
+    const contrasenaPlaceholder = document.getElementById("contrasena-placeholder");
+    contrasenaPlaceholder.textContent = contrasena;
 });
 
 guardarCambiosBtn4.addEventListener("click", () => {
     const usuario = usuarioInput.value;
-    if (usuario.length < 6 || usuario.length > 12(usuario)) {
+    if (usuario.length < 6 || usuario.length > 12) {
         alert("El usuario debe tener entre 6 y 12 caracteres.");
         return;
     }
+
+    // Actualiza el valor del nombre de usuario en el almacenamiento local
+    localStorage.setItem("usuario", usuario);
+
+    // Refleja el valor actualizado en el elemento "username"
+    const usuarioButton = document.getElementById("username");
+    usuarioButton.textContent = usuario;
 });
 
 //email
