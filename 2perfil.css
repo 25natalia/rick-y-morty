@@ -29,7 +29,7 @@ nav {
     margin-right:20px ;
     
 }
-.modal, .modal2, .modal3 {
+.modal, .modal2, .modal3, .modal4 {
     display: none;
     position: fixed;
     top: 0;
