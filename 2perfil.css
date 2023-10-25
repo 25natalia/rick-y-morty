@@ -35,10 +35,11 @@ nav {
     width: 300px;
     border-radius: 30px;
     border-style:none;
+    padding-left: 20px;
 }
 
 #input::placeholder, #input2::placeholder, #input3::placeholder{
-    color: #5a5a5a;
+    color: #939393;
 font-size: 14px;
 padding-left: 20px;
 }
@@ -48,19 +49,19 @@ padding-left: 20px;
     color: #fff;
     border-radius: 30px;
     height: 40px;
-    width: 150px;
+    width: 180px;
     padding-left: 30px;
     padding-right: 30px;
-    padding-top: 10px;
+    padding-top: 8px;
     padding-bottom: 10px;
     text-decoration: none;
     border-style:none;
 }
-
-
-.guardar{
-    margin-bottom: 30px;
+#openModalBtn:hover, #openModalBtn2:hover, #openModalBtn3:hover{
+    background-color: #04adc6;
+    color: white;
 }
+
 
 .centrar {
     display: flex;
