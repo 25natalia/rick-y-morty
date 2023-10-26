@@ -16,7 +16,7 @@ for(let i = 0; i < data.length; i++) {
 }
 
 function renderAllCharacters(characters) {
-    let container = document.getElementById("recommended")
+    let container = document.getElementById("carrusel")
     container.innerHTML = ""
     for(let i = 0; i <= 7; i++) {
         const character = characters[i]
