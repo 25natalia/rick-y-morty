@@ -228,9 +228,9 @@ height: 300px;
 }
 
 .personaje>img{
-    width: fit-content;
-    height: 280px;
-    margin-top: -40%;
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
 }
 
 .personajesContainer .carrusel img{

@@ -1,7 +1,7 @@
-class Characters {
+class Character {
 
     constructor(id, name, status, species, type, gender, origin, location, image) {
-        
+
         this.id = id
         this.name = name
         this.status = status
@@ -12,36 +12,19 @@ class Characters {
         this.location = location
         this.image = image
         this.active = true
-        
+
     }
 
-    toCharcterHtml(position) {
+    toCharacterHtml(position) {
         return `
         <div class="character" onclick='characterSelected(${position})'>
-            <h2>${this.name}</h2>
-            <img 
-            height="120"
-            alt="character" 
-            src="${this.image[0]}"/>
-            <div class="images">
-                <img 
-            height="40"
-            alt="character" 
-            src="${this.image[0]}"/>
-            <img 
-            height="40"
-            alt="character" 
-            src="${this.image[1]}"/>
-            <img 
-            height="40"
-            alt="character" 
-            src="${this.image[2]}"/>
-            </div>
-            <label>${this.status}</label>
-            <p>${this.species}</p>
-            <label>$ ${this.gender}</label>
+        <div class="personaje">
+        <img src="${this.image}" />
+        <div class="descripPersonaje">
+          <h4 class="nombre">${this.name}</h4>
+          <img src="./estrella 1.png" alt="">
         </div>
+      </div>
         `
     }
-
 }

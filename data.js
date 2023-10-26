@@ -1,4 +1,4 @@
-const dataCharacters = [
+const data = [
 
     {
         "id": 1,
