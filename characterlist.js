@@ -1,6 +1,6 @@
 class Characters {
 
-    constructor(id, name, status, species, type, gender, origin, location, images) {
+    constructor(id, name, status, species, type, gender, origin, location, image) {
         
         this.id = id
         this.name = name
@@ -10,7 +10,7 @@ class Characters {
         this.gender = gender
         this.origin = origin
         this.location = location
-        this.images = images
+        this.image = image
         this.active = true
         
     }
@@ -22,20 +22,20 @@ class Characters {
             <img 
             height="120"
             alt="character" 
-            src="${this.images[0]}"/>
+            src="${this.image[0]}"/>
             <div class="images">
                 <img 
             height="40"
             alt="character" 
-            src="${this.images[0]}"/>
+            src="${this.image[0]}"/>
             <img 
             height="40"
             alt="character" 
-            src="${this.images[1]}"/>
+            src="${this.image[1]}"/>
             <img 
             height="40"
             alt="character" 
-            src="${this.images[2]}"/>
+            src="${this.image[2]}"/>
             </div>
             <label>${this.status}</label>
             <p>${this.species}</p>
