@@ -15,9 +15,10 @@ class Character {
 
     }
 
+    //Html de cada carta 
     toCharacterHtml(position) {
         return `
-          <div class="character" data-status="${this.status}" onclick='characterSelected(${position})'>
+          <div class="character" data-status="${this.status}" data-species="${this.species}" data-gender="${this.gender}" onclick='characterSelected(${position})'>
             <div class="personaje">
               <img src="${this.image}" />
               <div class="descripPersonaje">
