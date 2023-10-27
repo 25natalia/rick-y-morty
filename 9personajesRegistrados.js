@@ -80,3 +80,103 @@ function filterCharacters() {
 // Llama a filterCharacters para mostrar los personajes en la carga inicial.
 filterCharacters();
 
+// Agrega un evento change a los checkboxes de especies
+document.getElementById("human-filter").addEventListener("change", applyFilters);
+document.getElementById("alien-filter").addEventListener("change", applyFilters);
+
+// Función para aplicar los filtros
+function applyFilters() {
+  const humanFilter = document.getElementById("human-filter").checked;
+  const alienFilter = document.getElementById("alien-filter").checked;
+
+  // Filtra los personajes en base a los checkboxes seleccionados
+  const filteredCharacters = data.filter((character) => {
+    if (humanFilter && alienFilter) {
+      // Mostrar todos los personajes si ambos filtros están seleccionados
+      return true;
+    } else if (humanFilter) {
+      return character.species === "Human";
+    } else if (alienFilter) {
+      return character.species === "Alien";
+    }
+    // Mostrar el personaje si no se ha seleccionado ningún filtro
+    return true;
+  });
+
+  // Limpia el carrusel antes de agregar las cartas filtradas
+  const carrusel = document.getElementById("carrusel");
+  carrusel.innerHTML = "";
+
+  // Agrega las cartas filtradas al carrusel
+  filteredCharacters.forEach((character, index) => {
+    const characterCard = new Character(
+      character.id,
+      character.name,
+      character.status,
+      character.species,
+      character.type,
+      character.gender,
+      character.origin,
+      character.location,
+      character.image
+    );
+    carrusel.innerHTML += characterCard.toCharacterHtml(index);
+  });
+}
+
+// Llama a applyFilters() para mostrar todos los personajes al cargar la página
+applyFilters();
+
+// Agrega eventos "change" a los checkboxes de género
+document.getElementById("male-filter").addEventListener("change", apply1Filters);
+document.getElementById("female-filter").addEventListener("change", apply1Filters);
+
+// Función para aplicar los filtros
+function apply1Filters() {
+  const maleFilter = document.getElementById("male-filter").checked;
+  const femaleFilter = document.getElementById("female-filter").checked;
+
+  // Filtra los personajes en base a los checkboxes seleccionados
+  const filteredCharacters = data.filter((character) => {
+    if (maleFilter && femaleFilter) {
+      // Mostrar todos los personajes si ningún filtro está seleccionado
+      return true;
+    }
+
+    let shouldShow = true;
+
+    if (maleFilter) {
+      shouldShow = shouldShow && character.gender === "Male";
+    }
+
+    if (femaleFilter) {
+      shouldShow = shouldShow && character.gender === "Female";
+    }
+
+    return shouldShow;
+  });
+
+  // Limpia el carrusel antes de agregar las cartas filtradas
+  const carrusel = document.getElementById("carrusel");
+  carrusel.innerHTML = "";
+
+  // Agrega las cartas filtradas al carrusel
+  filteredCharacters.forEach((character, index) => {
+    const characterCard = new Character(
+      character.id,
+      character.name,
+      character.status,
+      character.species,
+      character.type,
+      character.gender,
+      character.origin,
+      character.location,
+      character.image
+    );
+    carrusel.innerHTML += characterCard.toCharacterHtml(index);
+  });
+}
+
+// Llama a applyFilters() para mostrar todos los personajes al cargar la página
+apply1Filters();
+
