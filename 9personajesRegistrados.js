@@ -192,22 +192,20 @@ function openCharacterModal(index) {
     const modalContent = document.querySelector(".modal-content");
     modalContent.innerHTML = `
     <div id="info">
-    <div id="imagen">
-    <img src="${character.image}" alt="${character.name}">
-    </div>
-    <div id="texto">
+    <div id
+    ="texto">
       <h1>${character.name}</h1>
       <p>Status: ${character.status}</p>
       <p>Species: ${character.species}</p>
-      <p>Type: ${character.type}</p>
       <p>Gender: ${character.gender}</p>
       <p>Origin: ${character.origin.name}</p>
       <p>Location: ${character.location.name}</p>
       </div>
+    <img src="${character.image}" alt="${character.name}" class="imagen">
       </div>
     `;
 
-    modal.style.display = "block";
+    modal.style.display = "flex";
 
     closeModalBtn.addEventListener("click", () => {
         modal.style.display = "none";
@@ -221,7 +219,7 @@ function openCharacterModal(index) {
 }
 
 // Agrega un evento clic a los botones "Más info"
-const moreInfoButtons = document.querySelectorAll(".descripPersonaje button");
+const moreInfoButtons = document.querySelectorAll(".character");
 moreInfoButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
         openCharacterModal(index);

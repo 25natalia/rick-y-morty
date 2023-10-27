@@ -23,7 +23,6 @@ class Character {
               <div class="descripPersonaje">
                 <h4 class="nombre">${this.name}</h4>
                 <img src="./estrella 1.png" alt="">
-                <button class="more-info-button">Más info</button>
                 </div>
             </div>
           </div>

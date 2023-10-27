@@ -1,7 +1,8 @@
 .modal {
-    display: none;
+    display: flex;
     position: fixed;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     top: 0;
     left: 0;
     width: 100%;
@@ -11,34 +12,29 @@
 }
 
 .modal-content {
-    background-color:   white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    position: relative;
-    width: 700px;
-    margin-left: 380px;
-    margin-top: 230px;
-
-}
+    background-color:white;
+    border-radius: 30px;
+    width: 720px;
+    box-shadow: 0 0 20px #000000;}
 
 #texto {
     display: flex;
+    justify-content:center;
+    align-items: flex-start;
     flex-direction: column;
-    justify-content:left;
     color: #45c638;
     margin: 0 0;
-    margin-left: 20px;
-
+    margin-left: 40px;
 }
 p{
     display: flex;
-    justify-content: left;
+    justify-content: flex-start;
     margin: 0 0;
-
 }
 #info{
     display: flex;
+    justify-content: space-between;
+    border-radius: 30px;
 }
 
 nav {
@@ -53,6 +49,25 @@ nav {
 #navegacion{
     width: 100%;
 }
+.imagen{
+    display: flex;
+    height: 380px;
+    width: 380px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;    
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+    margin-right: 7px;
+}
+
+
 .link{
     display: flex;
     justify-content: space-evenly;
@@ -250,23 +265,24 @@ margin-bottom: 55px;
 
 .personaje{
 background-color: white;
-border-radius: 15px;
+border-radius: 35px;
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: center;
+justify-content: flex-start;
 color: #3CC542;
 text-align: left;
 text-decoration: none;
 vertical-align: top;
-width: 222px;
-height: 300px;
+width: 300;
+height: 370px;
 }
 
 .personaje>img{
-    width: 200px;
-    height: 200px;
-    border-radius: 15px;
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    margin-top: 25px;
 }
 
 .personajesContainer #carrusel img{
@@ -354,10 +370,8 @@ height: 300px;
     justify-content: space-between;
     width: 80%;
     align-items: center;
-    font-size: 22px;
-    margin-top: 8px;
-    margin-bottom: 40px;
-    
+    font-size: 22px;    
+    margin-top: 30px;
 }
 
 .descripPersonaje>h4 {
