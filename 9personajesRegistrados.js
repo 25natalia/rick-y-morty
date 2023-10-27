@@ -95,3 +95,47 @@ genderCheckboxes.forEach((checkbox) => {
 
 // Llama a applyFilters() para mostrar todos los personajes al cargar la página
 applyFilters();
+function openCharacterModal(index) {
+  const modal = document.getElementById("myModal");
+  const closeModalBtn = document.getElementById("closeModalBtn");
+  const character = characters[index];
+
+  // Actualiza el contenido del modal con la información del personaje
+  const modalContent = document.querySelector(".modal-content");
+  modalContent.innerHTML = `
+  <div id="info">
+  <div id="imagen">
+  <img src="${character.image}" alt="${character.name}">
+  </div>
+  <div id="texto">
+    <h1>${character.name}</h1>
+    <p>Status: ${character.status}</p>
+    <p>Species: ${character.species}</p>
+    <p>Type: ${character.type}</p>
+    <p>Gender: ${character.gender}</p>
+    <p>Origin: ${character.origin.name}</p>
+    <p>Location: ${character.location.name}</p>
+    </div>
+    </div>
+  `;
+
+  modal.style.display = "block";
+
+  closeModalBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+  });
+
+  window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+          modal.style.display = "none";
+      }
+  });
+}
+
+// Agrega un evento clic a los botones "Más info"
+const moreInfoButtons = document.querySelectorAll(".descripPersonaje button");
+moreInfoButtons.forEach((button, index) => {
+  button.addEventListener("click", () => {
+      openCharacterModal(index);
+  });
+});
