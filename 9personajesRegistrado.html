@@ -28,50 +28,49 @@
       </a>
     </nav>
   </div>
- 
-  <div class="filtro-status">
+  <!--Status-->
+  <label>
+    <input type="checkbox" name="status" value="Alive"> Alive
+  </label>
+  <label>
+    <input type="checkbox" name="status" value="Dead"> Dead
+  </label>
+  <label>
+    <input type="checkbox" name="status" value="unknown"> Unknown
+  </label>
+  <!-- Species -->
+  <div id="species-filters">
     <label>
-      <input type="checkbox" id="filtro-alive" value="Alive"> Alive
+      <input type="checkbox" name="species" value="Human"> Human
     </label>
     <label>
-      <input type="checkbox" id="filtro-dead" value="Dead"> Dead
+      <input type="checkbox" name="species" value="Alien"> Alien
+    </label>
+  </div>
+  <!-- Gender -->
+  <div id="gender-filters">
+    <label>
+      <input type="checkbox" name="gender" value="Male"> Male
     </label>
     <label>
-      <input type="checkbox" id="filtro-unknown" value="unknown"> Unknown
+      <input type="checkbox" name="gender" value="Female"> Female
     </label>
+  </div>
 
-    <div id="species-filters">
-      <label>
-        <input type="checkbox" id="human-filter"> Human
-      </label>
-      <label>
-        <input type="checkbox" id="alien-filter"> Alien
-      </label>
-    </div>
-
-    <div id="gender-filters">
-      <label>
-        <input type="checkbox" id="male-filter"> Male
-      </label>
-      <label>
-        <input type="checkbox" id="female-filter"> Female
-      </label>
-    </div>
-    
   <div class="todo">
     <div class="contenidoPersonajes">
       <div class="arriba">
         <h1>Personajes</h1>
         <a href="./8favorites.html"><img src="./Estrella principal.png" alt=""></a>
       </div>
-        <div id="carrusel"> </div>
+      <div id="carrusel"> </div>
 
-        </div>
-      </div>
+    </div>
+  </div>
 
-          <script src="./data.js"></script>
-          <script src="./characterlist.js"></script>
-          <script src="./9personajesRegistrados.js"></script>
+  <script src="./data.js"></script>
+  <script src="./characterlist.js"></script>
+  <script src="./9personajesRegistrados.js"></script>
 </body>
 
 </html>
