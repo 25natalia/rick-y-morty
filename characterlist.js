@@ -17,14 +17,16 @@ class Character {
 
     toCharacterHtml(position) {
         return `
-        <div class="character" onclick='characterSelected(${position})'>
-        <div class="personaje">
-        <img src="${this.image}" />
-        <div class="descripPersonaje">
-          <h4 class="nombre">${this.name}</h4>
-          <img src="./estrella 1.png" alt="">
-        </div>
-      </div>
-        `
-    }
+          <div class="character" data-status="${this.status}" onclick='characterSelected(${position})'>
+            <div class="personaje">
+              <img src="${this.image}" />
+              <div class="descripPersonaje">
+                <h4 class="nombre">${this.name}</h4>
+                <img src="./estrella 1.png" alt="">
+              </div>
+            </div>
+          </div>
+        `;
+      }
 }
+
