@@ -28,41 +28,45 @@
       </a>
     </nav>
   </div>
-  <!--Status-->
-  <label>
-    <input type="checkbox" name="status" value="Alive"> Alive
-  </label>
-  <label>
-    <input type="checkbox" name="status" value="Dead"> Dead
-  </label>
-  <label>
-    <input type="checkbox" name="status" value="unknown"> Unknown
-  </label>
-  <!-- Species -->
-  <div id="species-filters">
-    <label>
-      <input type="checkbox" name="species" value="Human"> Human
-    </label>
-    <label>
-      <input type="checkbox" name="species" value="Alien"> Alien
-    </label>
-  </div>
-  <!-- Gender -->
-  <div id="gender-filters">
-    <label>
-      <input type="checkbox" name="gender" value="Male"> Male
-    </label>
-    <label>
-      <input type="checkbox" name="gender" value="Female"> Female
-    </label>
-  </div>
+
 
   <div class="todo">
     <div class="contenidoPersonajes">
       <div class="arriba">
-        <h1>Personajes</h1>
+        <h1 id="personajes">Personajes</h1>
         <a href="./8favorites.html"><img src="./Estrella principal.png" alt=""></a>
       </div>
+    
+  <div id="filtros">
+    <form action="" class="formulario">
+        <!--Status-->
+      <div id="status-filters">
+        <h3 class="titles">Estado</h3>
+        <input class="checkbox" type="checkbox" name="status" value="Alive" id="alive">
+        <label for="alive">Vivo</label>
+        <input class="checkbox" type="checkbox" name="status" value="Dead" id="Dead">
+        <label for="alive">Muerto</label>
+        <input class="checkbox" type="checkbox" name="status" value="unknown" id="Unknown">
+        <label for="alive">Desconocido</label>
+      </div>
+          <!-- Species -->
+        <div id="species-filters">
+        <h3 class="titles">Especie</h3>
+        <input class="checkbox" type="checkbox" name="species" value="Human" id="Human">
+        <label for="alive">Humano</label>
+        <input class="checkbox" type="checkbox" name="species" value="Alien" id="Alien">
+        <label for="Alien">Alien</label>
+          </div>
+        <!-- Gender -->
+      <div id="gender-filters">
+      <h3 class="titles">Genero</h3>
+      <input class="checkbox" type="checkbox" name="gender" value="Male" id="Male">
+      <label for="alive">Hombre</label>
+      <input class="checkbox" type="checkbox" name="gender" value="Female" id="Female">
+      <label for="alive">Mujer</label>
+        </div>
+    </form>
+</div>
       <div id="carrusel"> </div>
 
         </div>
@@ -73,7 +77,6 @@
           <span class="close" id="closeModalBtn">&times;</span>
         </div>
       </div>      
-
   <script src="./data.js"></script>
   <script src="./characterlist.js"></script>
   <script src="./9personajesRegistrados.js"></script>

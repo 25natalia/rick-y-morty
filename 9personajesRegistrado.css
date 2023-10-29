@@ -174,7 +174,6 @@ a {
 
 #infocentro {
     width: 100%;
-
 }
 
 .centro {
@@ -219,31 +218,29 @@ a {
     justify-content: space-between;
     padding-bottom: 40px;
 }
-
-
 /* personajes */
 
-.contenidoPersonajes {
-color: white;
-margin-top: 5%;
-}
+
 
 .todo {
     padding: 0 5%;
 }
 .arriba{
-    display: flex;
+display: flex;
 align-items: center;
 justify-content: space-between;
-/* espacio para separar de las cartas */
-margin-bottom: 55px;
+height: 16px;
+margin-top: 60px;
+margin-bottom: 20px;
 }
 
 .arriba>a>img{
     width: 100%;
     height: auto;
 }
-
+#personajes{
+   color: #fff;
+}
 
 .arriba > h1{
     font-size: 60px;
@@ -291,7 +288,6 @@ height: 370px;
 }
 
 /* merch */
-
 .merch{
     background-color: white;
     border-radius: 15px;
@@ -427,9 +423,25 @@ footer {
     padding: 0 5%; 
     
   }
-
-  .character {
-    margin-bottom: 55px; /* Espaciado vertical entre las filas */
-  }
-
-  
+.character { margin-bottom: 50px; /* Espaciado vertical entre las filas */}
+#filtros{
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 0px;
+    text-shadow: 1px 1px 2px #00000050;
+    box-sizing: border-box;
+}
+.titles{
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+#gender-filters{
+    margin-bottom: 10px;
+}
+.formulario{
+    display: flex;
+    flex-direction: row;
+}
+#status-filters, #species-filters, #species-filters{
+    margin-right: 30px;
+}
