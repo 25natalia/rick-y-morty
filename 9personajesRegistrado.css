@@ -1,3 +1,5 @@
+/*modal*/
+
 .modal {
     display: flex;
     position: fixed;
@@ -37,6 +39,26 @@ p{
     border-radius: 30px;
 }
 
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+    margin-right: 7px;
+}
+
+.imagen{
+    display: flex;
+    height: 380px;
+    width: 380px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;    
+}
+
+/* nav */
+
 nav {
     background-color: WHITE;
     display: flex;
@@ -49,24 +71,6 @@ nav {
 #navegacion{
     width: 100%;
 }
-.imagen{
-    display: flex;
-    height: 380px;
-    width: 380px;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;    
-}
-
-.close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px;
-    cursor: pointer;
-    color: #fff;
-    margin-right: 7px;
-}
-
 
 .link{
     display: flex;
@@ -97,6 +101,7 @@ nav {
     transition:.2seaseall;
     text-decoration:none;
 }
+
 ::placeholder {
     color: white;
     font-size: 18px;
@@ -121,41 +126,13 @@ nav {
     margin-bottom: 5px;
 }
 
+/*Titulo, estrella y body*/
+
 body {
     background-color: #04adc6;
     background-size: cover;
     font-family: 'Heebo', sans-serif;
     margin: 0px;
-}
-
-#todo {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#forms {
-    margin-top: 100px;
-    display: flex;
-    align-items: center;
-    /**/
-    justify-content: space-between;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 25px;
-    min-width: 200px;
-    min-height: 300px;
-    margin: 0px;
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
-.contenidoarriba {
-    display: flex;
-    width: 30%;
-    justify-content: space-between;
-    align-items: center;
 }
 
 p {
@@ -168,62 +145,8 @@ a {
     font-size: 18px;
 }
 
-#linknav {
-    color: #04adc6;
-}
-
-#infocentro {
-    width: 100%;
-}
-
-.centro {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-.icon {
-    display: flex;
-    align-items: center;
-    gap: 3%;
-    width: 20%;
-}
-
-.icon>img {
-    width: 20%;
-    height: 100%;
-}
-
-.icon>p {
-    width: 80%;
-}
-
-#infoabajo {
-    display: flex;
-    justify-content: center;
-}
-
-#registro {
-    display: flex;
-    justify-content: center;
-}
-.otracuenta{
-    margin: 0;
-}
-.redes{
-    width: 15%;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 40px;
-}
-/* personajes */
-
-
-
 .todo {
-    padding: 0 5%;
+    padding: 2% 5% 3%; /*arriba, a los lados, abajo*/
 }
 .arriba{
 display: flex;
@@ -238,27 +161,14 @@ margin-bottom: 20px;
     width: 100%;
     height: auto;
 }
+
 #personajes{
    color: #fff;
-}
-
-.arriba > h1{
     font-size: 60px;
     margin-top: 0;
 }
 
-.personajesContainer{
-    justify-content: space-between;
-    display: flex;
-    padding: 60px 0;
-    width: 100%;
-    margin-right: 20px;
-}
-
-#carrusel {
-    display: flex;
-    flex-wrap: nowrap;
-}
+/*cartas con js y html*/
 
 .personaje{
 background-color: white;
@@ -282,85 +192,6 @@ height: 370px;
     margin-top: 25px;
 }
 
-.personajesContainer #carrusel img{
-    margin-top: -20px;
-
-}
-
-/* merch */
-.merch{
-    background-color: white;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #3CC542;
-    text-align: left;
-    text-decoration: none;
-    vertical-align: top;
-    margin-right: 60px;
-    width: 230px;
-    height: 280px;
-    padding-top: 2%;
-    }
-    
-    .merch>img{
-        width: fit-content;
-        height: 197px;
-        margin-top: 100%;
-        padding-bottom: 200;
-        margin-bottom: -5%;
-    }
-    
-    .personajesContainer #carrusel img{
-        margin-top: 0px;
-    
-    }
-
-/* capitulos */
-
-.capitulos{
-    background-color: white;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #3CC542;
-    text-align: left;
-    text-decoration: none;
-    vertical-align: top;
-    margin-right: 60px;
-    width: 222px;
-    height: 280px;
-    padding-top: 2%;
-    }
-    
-    .capitulos>img{
-        width: fit-content;
-        height: 197px;
-        margin-top: 100%;
-        padding-bottom: 200;
-        margin-bottom: -5%;
-    }
-    
-    .personajesContainer #carrusel img{
-        margin-top: 0px;
-    
-    }
-
-/* #morty{
-    width: 40%;
-}
-#jerry{
-    width: 70%;
-} */
-
-.hidden {
-    display: none;
-}
-
 .descripPersonaje {
     display: flex;
     justify-content: space-between;
@@ -379,40 +210,6 @@ height: 370px;
     height: fit-content;
 }
 
-.hoodie, .comic{
-    margin-top: 0 !important;
-    height: 197px !important;
-}
-
-.comic{
-    height: 170px !important;
-    padding-top: 20px;
-}
-
-footer {
-    height: 10vh;
-}
-
-.descripExtras {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    align-items: center;
-    font-size: 22px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    
-}
-
-.descripExtras>h4 {
-    margin: 0;
-}
-
-.descripExtras> img{
-    width: 15%;
-    height: fit-content;
-}
-
 #carrusel {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columnas por fila */
@@ -424,6 +221,14 @@ footer {
     
   }
 .character { margin-bottom: 50px; /* Espaciado vertical entre las filas */}
+
+/*filtros*/
+
+.formulario{
+    display: flex;
+    flex-direction: row;
+}
+
 #filtros{
     color: #ffffff;
     font-size: 20px;
@@ -435,13 +240,20 @@ footer {
     margin-bottom: 0px;
     margin-top: 10px;
 }
-#gender-filters{
-    margin-bottom: 10px;
-}
-.formulario{
-    display: flex;
-    flex-direction: row;
-}
+
 #status-filters, #species-filters, #species-filters{
     margin-right: 30px;
+    margin-bottom: 10px;
+}
+
+#lineaarriba{
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: 20px;
+
+}
+hr{
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 0;
 }
