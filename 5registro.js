@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("registro-telefono").value = "";
         document.getElementById("registro-contrasena").value = "";
 
+        //al hundir el boton de crear cuenta, redirige a la pagina de bienvenido
         window.location.href = "./6Bienvenido.html";
     });
 });
