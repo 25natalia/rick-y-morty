@@ -1,28 +1,28 @@
 let characters = []
-for(let i = 0; i < data.length; i++) {
-    const characterJson = data[i]
-    const character = new Character (
-            characterJson.id, 
-            characterJson.name,
-            characterJson.status, 
-            characterJson.species,
-            characterJson.type,  
-            characterJson.gender,
-            characterJson.origin,
-            characterJson.location,
-            characterJson.image,
-            )
-    characters.push(character)      
+for (let i = 0; i < data.length; i++) {
+  const characterJson = data[i]
+  const character = new Character(
+    characterJson.id,
+    characterJson.name,
+    characterJson.status,
+    characterJson.species,
+    characterJson.type,
+    characterJson.gender,
+    characterJson.origin,
+    characterJson.location,
+    characterJson.image,
+  )
+  characters.push(character)
 }
 
-//Renderiza todos los personajes en el div carrusel
+//Renderiza todos los personajes en el div carrusel segun el la estructura de las cartas
 function renderAllCharacters(characters) {
-    let container = document.getElementById("carrusel")
-    container.innerHTML = ""
-    for(let i = 0; i < data.length; i++) {
-        const character = characters[i]
-        container.innerHTML += character.toCharacterHtml(i)
-    }
+  let container = document.getElementById("carrusel")
+  container.innerHTML = ""
+  for (let i = 0; i < data.length; i++) {
+    const character = characters[i]
+    container.innerHTML += character.toCharacterHtml(i)
+  }
 }
 renderAllCharacters(characters)
 
@@ -33,7 +33,7 @@ function applyFilters() {
   const selectedSpecies = document.querySelector('input[name="species"]:checked');
   const selectedGender = document.querySelector('input[name="gender"]:checked');
 
-  //data viene de las cartas toCharacterHtml
+  //data viene de las cartas toCharacterHtml (esta data no se renderiza en las cartas pero se encuentra en el div de estas y tambien cambia segun cada carta)
   characters.forEach((character) => {
     const status = character.getAttribute('data-status');
     const species = character.getAttribute('data-species');
@@ -55,7 +55,7 @@ function applyFilters() {
 const statusCheckboxes = document.querySelectorAll('input[name="status"]');
 statusCheckboxes.forEach((checkbox) => {
   checkbox.addEventListener('change', () => {
-    // Limpiar los otros checkboxes de status
+    // Cuando se selcciona un checkbox de status, se limpian los otros checkboxes de status
     statusCheckboxes.forEach((cb) => {
       if (cb !== checkbox) {
         cb.checked = false;
@@ -69,7 +69,7 @@ statusCheckboxes.forEach((checkbox) => {
 const speciesCheckboxes = document.querySelectorAll('input[name="species"]');
 speciesCheckboxes.forEach((checkbox) => {
   checkbox.addEventListener('change', () => {
-    // Limpiar los otros checkboxes de species
+    // Cuando se selcciona un checkbox de species, se limpian los otros checkboxes de species
     speciesCheckboxes.forEach((cb) => {
       if (cb !== checkbox) {
         cb.checked = false;
@@ -83,7 +83,7 @@ speciesCheckboxes.forEach((checkbox) => {
 const genderCheckboxes = document.querySelectorAll('input[name="gender"]');
 genderCheckboxes.forEach((checkbox) => {
   checkbox.addEventListener('change', () => {
-    // Limpiar los otros checkboxes de gender
+    // Cuando se selcciona un checkbox de gender, se limpian los otros checkboxes de gender
     genderCheckboxes.forEach((cb) => {
       if (cb !== checkbox) {
         cb.checked = false;
@@ -95,14 +95,16 @@ genderCheckboxes.forEach((checkbox) => {
 
 // Llama a applyFilters() para mostrar todos los personajes al cargar la página
 applyFilters();
+
+// Funcion para abrir el modal
 function openCharacterModal(index) {
   const modal = document.getElementById("myModal");
   const closeModalBtn = document.getElementById("closeModalBtn");
   const character = characters[index];
 
-    // Actualiza el contenido del modal con la información del personaje
-    const modalContent = document.querySelector(".modal-content");
-    modalContent.innerHTML = `
+  // Renderiza el contenido del modal con la información del personaje selecionado en la carta
+  const modalContent = document.querySelector(".modal-content");
+  modalContent.innerHTML = `
     <div id="info">
     <div id
     ="texto">
@@ -117,23 +119,20 @@ function openCharacterModal(index) {
       </div>
     `;
 
-    modal.style.display = "flex";
+  modal.style.display = "flex";
 
-  closeModalBtn.addEventListener("click", () => {
+  // Funcion para cerrar el modal al dar click afuera
+   window.addEventListener("click", (event) => {
+    if (event.target === modal) {
       modal.style.display = "none";
-  });
-
-  window.addEventListener("click", (event) => {
-      if (event.target === modal) {
-          modal.style.display = "none";
-      }
+    }
   });
 }
 
-// Agrega un evento clic a los botones "Más info"
+// Agrega un evento clic a los botones a cada carta de personaje
 const moreInfoButtons = document.querySelectorAll(".character");
 moreInfoButtons.forEach((button, index) => {
   button.addEventListener("click", () => {
-      openCharacterModal(index);
+    openCharacterModal(index);
   });
 });
