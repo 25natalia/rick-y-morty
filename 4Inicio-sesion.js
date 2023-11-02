@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let storedEmail = localStorage.getItem("email");
         let storedUsuario = localStorage.getItem("usuario");
 
-        //Comprueba si el input proporcionado por el usuario corresponde ya sea con el  email o el usuario guardados, si sí  corresponden, se pasa a comprobar la contrasena
+        //Comprueba si el input proporcionado por el usuario corresponde ya sea con el  email o el usuario guardados en local storage, si sí  corresponden, se pasa a comprobar la contrasena comparandola con la guardad en el local storage
         if (emailOrUsuario === storedEmail || emailOrUsuario === storedUsuario) {
             let storedPassword = localStorage.getItem("contrasena");
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("emailOrUser").value = "";
                 document.getElementById("password").value = "";
 
-                // Redirige al usuario a la pagina de bienvenida
+                // Redirige al usuario a la pagina de bienvenido de nuevo
                 window.location.href = "./7holadenuevo.html";
             } else {
                 //SI la contraseña es incorrecta, aparece una alerta que advierte al usuario
