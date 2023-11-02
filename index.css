@@ -34,23 +34,6 @@ nav {
     font-size: 18px;
 }
 
-::placeholder {
-    color: white;
-    font-size: 18px;
-}
-
-#perfil {
-    height: 65px;
-    width: 65px;
-    /* los siguientes valores son independientes del tamaño del círculo */
-    background-repeat: no-repeat;
-    background-position: 50%;
-    border-radius: 50%;
-    background-size: 150% auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
 /* Cuerpp */
 body {
     background-color: #04b0c6;
