@@ -14,26 +14,29 @@
 }
 
 .modal-content {
-    background-color:white;
+    background-color: white;
     border-radius: 30px;
     width: 720px;
-    box-shadow: 0 0 20px #000000;}
+    box-shadow: 0 0 20px #000000;
+}
 
 #texto {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: flex-start;
     flex-direction: column;
     color: #45c638;
     margin: 0 0;
     margin-left: 40px;
 }
-p{
+
+p {
     display: flex;
     justify-content: flex-start;
     margin: 0 0;
 }
-#info{
+
+#info {
     display: flex;
     justify-content: space-between;
     border-radius: 30px;
@@ -49,12 +52,12 @@ p{
     margin-right: 7px;
 }
 
-.imagen{
+.imagen {
     display: flex;
     height: 380px;
     width: 380px;
     border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;    
+    border-bottom-right-radius: 30px;
 }
 
 /* barra de navegacion */
@@ -68,11 +71,12 @@ nav {
     align-items: center;
     padding: 0px 20px;
 }
-#navegacion{
+
+#navegacion {
     width: 100%;
 }
 
-.link{
+.link {
     display: flex;
     justify-content: space-evenly;
     width: 40%;
@@ -80,14 +84,15 @@ nav {
     margin-right: 1%;
 }
 
-#linknav:hover{ 
+.linknav:hover {
     color: #45c638;
 }
-#linknav {
+
+.linknav {
     color: #04adc6;
     cursor: pointer;
-    transition:.2seaseall;
-    text-decoration:none;
+    transition: .2seaseall;
+    text-decoration: none;
 }
 
 ::placeholder {
@@ -95,11 +100,11 @@ nav {
     font-size: 18px;
 }
 
-.sn{
-    color:#45c638 !important;
+#sn {
+    color: #45c638 !important;
     cursor: pointer;
     transition: .2s ease all;
-    text-decoration:none;
+    text-decoration: none;
 }
 
 #perfil {
@@ -134,47 +139,50 @@ a {
 }
 
 .todo {
-    padding: 2% 5% 3%; /*arriba, a los lados, abajo*/
-}
-.arriba{
-display: flex;
-align-items: center;
-justify-content: space-between;
-height: 16px;
-margin-top: 60px;
-margin-bottom: 20px;
+    padding: 2% 5% 3%;
+    /*arriba, a los lados, abajo*/
 }
 
-.arriba a img{
+.arriba {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 16px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.arriba a img {
     width: 100%;
     height: auto;
-    margin-bottom: 72%; /*con esto se mueve la estrella dentro de su div*/
+    margin-bottom: 72%;
+    /*con esto se mueve la estrella dentro de su div*/
 }
 
-#personajes{
-   color: #fff;
+#personajes {
+    color: #fff;
     font-size: 60px;
     margin-top: 0;
 }
 
 /*cartas con js y html*/
 
-.personaje{
-background-color: white;
-border-radius: 35px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: flex-start;
-color: #3CC542;
-text-align: left;
-text-decoration: none;
-vertical-align: top;
-width: 300;
-height: 370px;
+.personaje {
+    background-color: white;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: #3CC542;
+    text-align: left;
+    text-decoration: none;
+    vertical-align: top;
+    width: 300;
+    height: 370px;
 }
 
-.personaje>img{
+.personaje>img {
     width: 250px;
     height: 250px;
     border-radius: 20px;
@@ -186,7 +194,7 @@ height: 370px;
     justify-content: space-between;
     width: 80%;
     align-items: center;
-    font-size: 22px;    
+    font-size: 22px;
     margin-top: 30px;
 }
 
@@ -194,57 +202,67 @@ height: 370px;
     margin: 0;
 }
 
-.descripPersonaje> img{
+.descripPersonaje>img {
     width: 15%;
     height: fit-content;
 }
 
 #carrusel {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas por fila */
-    grid-auto-flow: row; /* Las cartas se ajustarán automáticamente en filas */
-    gap: 20px; /* Espacio entre las cartas */
-    justify-content: space-evenly; /* Distribución horizontal uniforme */
-    align-content: center; /* Centra las cartas verticalmente */
-    padding: 0 5%; 
-    
-  }
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columnas por fila */
+    grid-auto-flow: row;
+    /* Las cartas se ajustarán automáticamente en filas */
+    gap: 20px;
+    /* Espacio entre las cartas */
+    justify-content: space-evenly;
+    /* Distribución horizontal uniforme */
+    align-content: center;
+    /* Centra las cartas verticalmente */
+    padding: 0 5%;
 
-.character { 
-    margin-bottom: 50px; /* Espaciado vertical entre las filas */
+}
+
+.character {
+    margin-bottom: 50px;
+    /* Espaciado vertical entre las filas */
 }
 
 /*filtros*/
 
-.formulario{
+.formulario {
     display: flex;
     flex-direction: row;
 }
 
-#filtros{
+#filtros {
     color: #ffffff;
     font-size: 20px;
     margin-bottom: 0px;
     text-shadow: 1px 1px 2px #00000050;
     box-sizing: border-box;
 }
-.titles{
+
+.titles {
     margin-bottom: 0px;
     margin-top: 10px;
 }
 
-#status-filters, #species-filters, #species-filters{
+#status-filters,
+#species-filters,
+#species-filters {
     margin-right: 30px;
     margin-bottom: 10px;
 }
 
-#lineaarriba{
+#lineaarriba {
     width: 100%;
     margin-bottom: 0px;
     margin-top: 20px;
 
 }
-hr{
+
+hr {
     width: 100%;
     margin-bottom: 35px;
     margin-top: 0;

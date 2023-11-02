@@ -7,13 +7,14 @@ nav {
     justify-content: start;
     height: 100%;
     align-items: center;
-    padding: 0px 20px;
+    padding: 9px 20px;
 }
-#navegacion{
+
+#navegacion {
     width: 100%;
 }
 
-.link{
+.link {
     display: flex;
     justify-content: space-evenly;
     width: 40%;
@@ -21,26 +22,21 @@ nav {
     margin-right: 1%;
 }
 
-#linknav:hover{ 
+.linknav:hover {
     color: #45c638;
 }
-#linknav {
+
+.linknav {
     color: #04adc6;
     cursor: pointer;
-    transition:.2seaseall;
-    text-decoration:none;
+    transition: .2seaseall;
+    text-decoration: none;
+    font-size: 18px;
 }
 
 ::placeholder {
     color: white;
     font-size: 18px;
-}
-
-.sn{
-    color:#45c638 !important;
-    cursor: pointer;
-    transition: .2s ease all;
-    text-decoration:none;
 }
 
 #perfil {
@@ -60,7 +56,6 @@ body {
     background-color: #04b0c6;
     background-size: cover;
     font-family: 'Heebo', sans-serif;
-    font-family: 'Open Sans', sans-serif;
     margin: 0;
 }
 
@@ -71,7 +66,8 @@ h1 {
     margin-right: 5%;
 }
 
-.button1, .button2 {
+.button1,
+.button2 {
     margin-top: 20px;
     background: #45c638;
     border: none;
@@ -85,7 +81,8 @@ h1 {
     transition: .2s ease all;
 }
 
-.button1:hover, .button2:hover {
+.button1:hover,
+.button2:hover {
     background: #FFF;
     color: #04b0c6;
 }
