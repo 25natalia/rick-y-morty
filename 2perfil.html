@@ -12,21 +12,25 @@
 </head>
 
 <body>
+    <!-- barra de navegacion -->
     <div id="navegacion">
         <nav>
             <a href="./7holadenuevo.html"><img src="./Rick_and_Morty.svg.png" height="50px" width="150px"></a>
-            <div class="link"><a id="linknav" href="./8favorites.html">Favoritos</a>
-                <a id="linknav" href="./9personajesRegistrado.html">Contenido</a>
-                <a id="linknav" href="./3sobrenosotros - copia.html">Sobre nosotros</a>
+            <div class="link">
+                <a class="linknav" href="./8favorites.html">Favoritos</a>
+                <a class="linknav" href="./9personajesRegistrado.html">Personajes</a>
+                <a class="linknav" href="./3sobrenosotrosRegistrado.html">Sobre nosotros</a>
             </div>
-            <form action="../../form-result.php" method="post" target="_blank">
-                <input type="search" id="busqueda" placeholder="buscar">
-            </form>
-            <a href="./2perfil.html"><div id="perfil" style="background-image: url(./foto\ pp\ rick.avif)"></div></a>
+            <a href="./2perfil.html">
+                <div id="perfil" style="background-image: url(./foto\ pp\ rick.avif)"></div>
+            </a>
         </nav>
     </div>
+    <!-- Cuerpo -->
     <div id="todo">
+        <!-- Todo lo que va en la zona blanca -->
         <div id="forms">
+            <!-- codido de user, foto de perfil, nombre de usuario -->
             <div id="infoarriba">
                 <div class="contenidoarriba">
                     <p>Código de usuario</p>
@@ -37,6 +41,7 @@
                     <p>Nombre de usuario</p> <button id="username"></button>
                 </div>
             </div>
+            <!-- email, telefono, contraseña -->
             <div id="infocentro">
                 <div class="centro">
                     <div class="icon"><img src="./sobre.png" alt="">
@@ -54,9 +59,11 @@
                     </div> <button id="openModalBtn3">Cambiar contraseña</button>
                 </div>
             </div>
+            <!-- Cerrar sesion  -->
             <div id="infoabajo">
-                <a href="./0index.html">Cerrar sesión</a>
+                <a href="./index.html">Cerrar sesión</a>
             </div>
+            <!-- Crear otra cuenta iconos -->
             <div id="registro">
                 <p class="otracuenta">Crea otra cuenta con</p>
             </div>
@@ -65,55 +72,63 @@
                 <a href="./5registro.html"><img src="./Facebook_f_logo_(2019).svg.webp" width="50px" height="50px"></a>
             </div>
         </div>
-        
-<div id="myModal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <span class="close" id="closeModalBtn">&times;</span>
-        <form  class="contenido">
-        <h2>Ingresa tu nueva dirección de correo</h2>
-        <input required type="email" id="input" placeholder="ejemplo@rickymorty.com">
-        <div class="guardar"></div><a href="./2perfil.html"><submit id="guardar-cambios">Guardar cambios</submit></a></div>
-    </form>
+        <!-- Modales para cambiar la informacion de la cuenta -->
+        <!-- Modal para cambiar el email -->
+        <div id="myModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" id="closeModalBtn">&times;</span>
+                <form class="contenido">
+                    <h2>Ingresa tu nueva dirección de correo</h2>
+                    <input required type="email" id="input" placeholder="ejemplo@rickymorty.com">
+                    <div class="guardar"></div><a href="./2perfil.html">
+                        <submit id="guardar-cambios">Guardar cambios</submit>
+                    </a>
+            </div>
+            </form>
+        </div>
     </div>
-</div>
-
-<div id="myModal2" class="modal2" style="display: none;">
-    <div class="modal-content2">
-        <span class="close" id="closeModalBtn2">&times;</span>
-        <form class="contenido">
-            <h2>Ingresa tu nuevo número de teléfono</h2>
-            <input type="number" placeholder="1234567890" required id="input2">
-            <div class="guardar"><a href="./2perfil.html"><submit id="guardar-cambios2">Guardar cambios</submit></a></div>
+    <!-- Modal para cambiar el telefono -->
+    <div id="myModal2" class="modal2" style="display: none;">
+        <div class="modal-content2">
+            <span class="close" id="closeModalBtn2">&times;</span>
+            <form class="contenido">
+                <h2>Ingresa tu nuevo número de teléfono</h2>
+                <input type="number" placeholder="1234567890" required id="input2">
+                <div class="guardar"><a href="./2perfil.html">
+                        <submit id="guardar-cambios2">Guardar cambios</submit>
+                    </a></div>
+            </form>
+        </div>
+    </div>
+    <!-- Modal para cambiar la contraseña -->
+    <div id="myModal3" class="modal3" style="display: none;">
+        <div class="modal-content3">
+            <span class="close" id="closeModalBtn3">&times;</span>
+            <form class="contenido">
+                <h2>Ingresa tu nueva contraseña</h2>
+                <input required type="password" id="input3" placeholder="Contrasena123">
+                <div class="guardar"></div><a href="./2perfil.html">
+                    <submit id="guardar-cambios3">Guardar cambios</submit>
+                </a>
+        </div>
         </form>
     </div>
-</div>
-
-
-<div id="myModal3" class="modal3" style="display: none;">
-    <div class="modal-content3">
-        <span class="close" id="closeModalBtn3">&times;</span>
-        <form  class="contenido">
-        <h2>Ingresa tu nueva contraseña</h2>
-        <input required type="password" id="input3" placeholder="Contrasena123">
-        <div class="guardar"></div><a href="./2perfil.html"><submit id="guardar-cambios3">Guardar cambios</submit></a></div>
-    </form>
     </div>
-</div>
-
-<div id="myModal4" class="modal4" style="display: none;">
-    <div class="modal-content4">
-        <span class="close" id="closeModalBtn4">&times;</span>
-        <form  class="contenido">
-        <h2>Ingresa tu nuevo nombre de usuario</h2>
-        <input required type="user" id="input4" placeholder="User123">
-        <div class="guardar"></div><a href="./2perfil.html"><submit id="guardar-cambios4">Guardar cambios</submit></a></div>
-    </form>
+    <!-- Modal para cambiar el nombre de usuario -->
+    <div id="myModal4" class="modal4" style="display: none;">
+        <div class="modal-content4">
+            <span class="close" id="closeModalBtn4">&times;</span>
+            <form class="contenido">
+                <h2>Ingresa tu nuevo nombre de usuario</h2>
+                <input required type="user" id="input4" placeholder="User123">
+                <div class="guardar"></div><a href="./2perfil.html">
+                    <submit id="guardar-cambios4">Guardar cambios</submit>
+                </a>
+        </div>
+        </form>
     </div>
-</div>
-
-
+    </div>
+    <script src="./2perfil.js"></script>
+    <script src="https://kit.fontawesome.com/f453d0fc9e.js" crossorigin="anonymous"></script>
 </body>
-<script src="./2perfil.js"></script>
-<script src="https://kit.fontawesome.com/f453d0fc9e.js" crossorigin="anonymous"></script>
-
 </html>

@@ -7,7 +7,7 @@ nav {
     justify-content: start;
     height: 100%;
     align-items: center;
-    padding: 0px 20px;
+    padding: 9px 20px;
 }
 
 #navegacion {
@@ -34,41 +34,44 @@ nav {
     font-size: 18px;
 }
 
-::placeholder {
-    color: white;
-    font-size: 18px;
-}
-
-#perfil {
-    height: 65px;
-    width: 65px;
-    /* los siguientes valores son independientes del tamaño del círculo */
-    background-repeat: no-repeat;
-    background-position: 50%;
-    border-radius: 50%;
-    background-size: 150% auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-/* Cuerpo */
+/* Cuerpp */
 body {
     background-color: #04b0c6;
     background-size: cover;
     font-family: 'Heebo', sans-serif;
-    margin: 0px;
+    margin: 0;
 }
 
 h1 {
     color: rgb(252, 252, 252);
     margin-left: 10%;
-    margin-top: 45%;
+    margin-top: 35%;
     margin-right: 5%;
 }
 
+.button1,
+.button2 {
+    margin-top: 20px;
+    background: #45c638;
+    border: none;
+    border-radius: 30px;
+    padding: 0.93em 1.87em;
+    color: #FFF;
+    margin-right: 1.25em;
+    font-size: 1.12em;
+    margin-left: 10%;
+    cursor: pointer;
+    transition: .2s ease all;
+}
+
+.button1:hover,
+.button2:hover {
+    background: #FFF;
+    color: #04b0c6;
+}
+
 .img {
-    width: 70%;
-    padding-left: 250px;
+    width: 100%;
 }
 
 .cuerpo {
