@@ -195,17 +195,41 @@ a {
     width: 80%;
     align-items: center;
     font-size: 22px;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .descripPersonaje>h4 {
     margin: 0;
 }
 
-.descripPersonaje>img {
-    width: 15%;
-    height: fit-content;
-}
+.estrellafavs {
+    display: flex;
+    flex-direction: row-reverse; /* Invierte el orden de las estrellas */
+  }
+  
+.estrellafav {
+    display: none; /* Oculta los checkboxes */
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+  }
+  
+.starfav {
+    margin-top: 10px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-image: url('./estrella\ 2.png'); /* Usa una imagen de estrella como fondo */
+    background-size: cover;
+  }
+  
+  .nombre{
+    width: 77%;
+  }
+
+  input[class="estrellafav"]:checked + .starfav {
+    background-image: url('./estrella\ 1.png'); /* Cambia la imagen a una estrella rellena cuando está seleccionada */
+  }
 
 #carrusel {
     display: grid;
@@ -222,6 +246,7 @@ a {
     padding: 0 5%;
 
 }
+
 
 .character {
     margin-bottom: 50px;
