@@ -223,12 +223,12 @@ a {
         cursor: pointer;
         width: 40px;
         height: 40px;
-        background-image: url('./estrella\ 2.png'); /* Usa una imagen de estrella como fondo */
+        background-image: url('./estrella\ 1.png '); /* Usa una imagen de estrella como fondo */
         background-size: cover;
       }
       
       input[class="estrellafav"]:checked + .starfav {
-        background-image: url('./estrella\ 1.png'); /* Cambia la imagen a una estrella rellena cuando está seleccionada */
+        background-image: url('./estrella\ 2.png'); /* Cambia la imagen a una estrella rellena cuando está seleccionada */
       }
 
       .nombre{
