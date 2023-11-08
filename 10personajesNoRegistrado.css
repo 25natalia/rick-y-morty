@@ -101,7 +101,18 @@ nav {
     cursor: pointer;
     transition: .2s ease all;
     text-decoration: none;
-    font-size: 18px;
+}
+
+#perfil {
+    height: 65px;
+    width: 65px;
+    /* los siguientes valores son independientes del tamaño del círculo */
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 150% auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 /*Titulo, estrella y body*/
