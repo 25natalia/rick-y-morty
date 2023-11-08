@@ -1,3 +1,5 @@
+/* barra de navegacion */
+
 nav {
     background-color: WHITE;
     display: flex;
@@ -7,45 +9,76 @@ nav {
     align-items: center;
     padding: 0px 20px;
 }
-#navegacion{
+
+#navegacion {
     width: 100%;
 }
-.link{
+
+.link {
     display: flex;
     justify-content: space-evenly;
-    width: 35%;
-    margin-left: 35%;
+    width: 40%;
+    margin-left: 50%;
+    margin-right: 1%;
 }
-#busqueda {
-    background-color: #04adc6;
-    border: 0px;
-    border-radius: 25px;
-    background-image: url("./lupa.png");
-    background-size: 25px;
-    background-position: 7px 5px;
-    background-repeat: no-repeat;
-    padding: 10px 20px 7px 50px;
+
+.linknav:hover {
+    color: #45c638;
+}
+
+.linknav {
+    color: #04adc6;
+    cursor: pointer;
+    transition: .2seaseall;
+    text-decoration: none;
+}
+
+::placeholder {
     color: white;
-    margin-right:20px ;
-    
+    font-size: 18px;
 }
-#input, #input2, #input3, #input4{
+
+#perfil {
+    height: 65px;
+    width: 65px;
+    /* los siguientes valores son independientes del tamaño del círculo */
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 150% auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Modal */
+
+/* Espacio de texto donde va nueva info*/
+#input,
+#input2,
+#input3,
+#input4 {
     margin-bottom: 15px;
     height: 30px;
     width: 300px;
     border-radius: 30px;
-    border-style:none;
+    border-style: none;
     padding-left: 20px;
     margin-bottom: 35px;
 }
 
-#input::placeholder, #input2::placeholder, #input3::placeholder, #input4::placeholder{
+#input::placeholder,
+#input2::placeholder,
+#input3::placeholder,
+#input4::placeholder {
     color: #939393;
-font-size: 14px;
-padding-left: 20px;
+    font-size: 14px;
+    padding-left: 20px;
 }
 
-#openModalBtn, #openModalBtn2, #openModalBtn3, #username{
+#openModalBtn,
+#openModalBtn2,
+#openModalBtn3,
+#username {
     background-color: #45c638;
     color: #fff;
     border-radius: 30px;
@@ -56,9 +89,14 @@ padding-left: 20px;
     padding-top: 8px;
     padding-bottom: 10px;
     text-decoration: none;
-    border-style:none;
+    border-style: none;
+    font-size: 13px ;
 }
-#openModalBtn:hover, #openModalBtn2:hover, #openModalBtn3:hover, #openModalBtn4:hover{
+
+#openModalBtn:hover,
+#openModalBtn2:hover,
+#openModalBtn3:hover,
+#openModalBtn4:hover {
     background-color: #04adc6;
     color: white;
 }
@@ -70,7 +108,10 @@ padding-left: 20px;
     flex-direction: column;
 }
 
-.modal, .modal2, .modal3, .modal4 {
+.modal,
+.modal2,
+.modal3,
+.modal4 {
     display: none;
     position: fixed;
     top: 0;
@@ -81,8 +122,11 @@ padding-left: 20px;
     z-index: 1;
 }
 
-.modal-content, .modal-content2, .modal-content3, .modal-content4 {
-    background-color:#04adc6;
+.modal-content,
+.modal-content2,
+.modal-content3,
+.modal-content4 {
+    background-color: #04adc6;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -109,7 +153,10 @@ padding-left: 20px;
     margin-right: 7px;
 }
 
-#guardar-cambios, #guardar-cambios2, #guardar-cambios3, #guardar-cambios4{
+#guardar-cambios,
+#guardar-cambios2,
+#guardar-cambios3,
+#guardar-cambios4 {
     background-color: #45c638;
     color: #fff;
     border-radius: 30px;
@@ -123,65 +170,17 @@ padding-left: 20px;
     margin: 0px;
 }
 
-#guardar-cambios:hover, #guardar-cambios2:hover, #guardar-cambios3:hover, #guardar-cambios4:hover{
+#guardar-cambios:hover,
+#guardar-cambios2:hover,
+#guardar-cambios3:hover,
+#guardar-cambios4:hover {
     background-color: #fff;
     color: #04adc6;
     font-style: none;
     text-decoration: none;
 }
 
-#linknav:hover{ 
-    color: #45c638;
-}
-#linknav {
-    color: #04adc6;
-    cursor: pointer;
-    transition:.2seaseall;
-    text-decoration:none;
-}
-::placeholder {
-    color: white;
-    font-size: 18px;
-}
-
-#perfil {
-    height: 65px;
-    width: 65px;
-    /* los siguientes valores son independientes del tamaño del círculo */
-    background-repeat: no-repeat;
-    background-position: 50%;
-    border-radius: 50%;
-    background-size: 150% auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-#perfil2 {
-    height: 150px;
-    width: 150px;
-    /* los siguientes valores son independientes del tamaño del círculo */
-    background-repeat: no-repeat;
-    background-position: 50%;
-    border-radius: 50%;
-    background-size: 150% auto;
-    margin-top: -75px;
-}
-
-#username {
-    margin-top: 1%;
-    background-color: #d3dfe6;
-    border: 0px;
-    border-radius: 25px;
-    padding: 10px 20px 7px 10px;
-    font-weight: bold;
-    width: 100px;
-    height: 40px;
-    color: #fff;
-    height: 40px;
-    color: #fff;
-}
-
-
+/* Cuerpo */
 
 body {
     background: linear-gradient(rgba(72, 121, 161, 0.5) 8%, rgba(72, 117, 145, 0.5)100%), url("./pelea\ ricky\ morty.jpg");
@@ -192,7 +191,7 @@ body {
 
 #todo {
     margin-top: 150px;
-    margin-bottom:100px ;
+    margin-bottom: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -225,6 +224,31 @@ body {
     width: 30%;
     justify-content: space-between;
     align-items: center;
+}
+
+#perfil2 {
+    height: 150px;
+    width: 150px;
+    /* los siguientes valores son independientes del tamaño del círculo */
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 150% auto;
+    margin-top: -75px;
+}
+
+#username {
+    margin-top: 1%;
+    background-color: #d3dfe6;
+    border: 0px;
+    border-radius: 25px;
+    padding: 10px 20px 7px 10px;
+    font-weight: bold;
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    height: 40px;
+    color: #fff;
 }
 
 p {
@@ -276,10 +300,12 @@ a {
     display: flex;
     justify-content: center;
 }
-.otracuenta{
+
+.otracuenta {
     margin: 0;
 }
-.redes{
+
+.redes {
     width: 15%;
     display: flex;
     justify-content: space-between;

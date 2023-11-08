@@ -8,169 +8,79 @@
       href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600&family=Open+Sans:wght@300&family=Raleway:wght@100&display=swap"
       rel="stylesheet"
     />
-    <title>Main</title>
+    <title>Favoritos</title>
   </head>
 
   <body>
-    <div id="navegacion">
-      <nav>
-          <a href="./7holadenuevo.html"><img src="./Rick_and_Morty.svg.png" height="50px" width="150px"></a>
-          <div class="link">
-              <a id="linknav" class="sn" href="#">Favoritos</a>
-              <a id="linknav" href="./9personajesRegistrado.html">Contenido</a>
-              <a id="linknav" href="./3sobrenosotros - copia.html">Sobre nosotros</a>
-          </div>
-          <form action="../../form-result.php" method="post" target="_blank">
-              <input type="search" id="busqueda" placeholder="buscar">
-          </form>
-          <a href="./2perfil.html"><div id="perfil" style="background-image: url(./foto\ pp\ rick.avif)"></div></a>
-      </nav>
+<!-- barra de navegacion -->
+<div id="navegacion">
+  <nav>
+    <a href="./7holadenuevo.html"><img src="./Rick_and_Morty.svg.png" height="50px" width="150px"></a>
+    <div class="link">
+      <a id="sn" href="./8favorites.html">Favoritos</a>
+      <a class="linknav" href="./9personajesRegistrado.html">Personajes</a>
+      <a class="linknav" href="./3sobrenosotrosRegistrado.html">Sobre nosotros</a>
+    </div>
+    <a href="./2perfil.html">
+      <div id="perfil" style="background-image: url(./foto\ pp\ rick.avif)"></div>
+    </a>
+  </nav>
+</div>
+<!-- Aqui va todo el contenido de la pagina -->
+<div class="todo">
+  <!-- En esta seccion va el titulo-->
+  <div class="arriba">
+    <h1 id="personajes">Favoritos</h1>
   </div>
-
-  <div class="todo">
-    <div class="contenidoPersonajes">
-      <div class="arriba">
-        <h1>Favoritos</h1>
-        <a href="./8favorites.html"><img src="./Estrella principal.png" alt=""></a>
+  <!-- filtros -->
+  <div id="filtros">
+    <hr id="lineaarriba">
+    <form action="" class="formulario">
+      <!--Status-->
+      <div id="status-filters">
+        <h3 class="titles">Estado</h3>
+        <input class="checkbox" type="checkbox" name="status" value="Alive" id="alive">
+        <label for="alive">Vivo</label>
+        <input class="checkbox" type="checkbox" name="status" value="Dead" id="Dead">
+        <label for="alive">Muerto</label>
+        <input class="checkbox" type="checkbox" name="status" value="unknown" id="Unknown">
+        <label for="alive">Desconocido</label>
       </div>
-      <div class="personajesContainer">
-        <div class="carrusel">
-          <div class="personaje">
-            <img src="./Rick.png" alt="" />
-            <div class="descripPersonaje">
-              <h4 class="nombre">Rick</h4>
-              <img src="./estrella 1.png" alt="">
-            </div>
-          </div>
-
-          <a href="./1personaje.html" class="personaje">
-
-            <img src="./MortyP.png" alt="" />
-            <div class="descripPersonaje">
-              <h4 class="nombre">Morty Smith</h4>
-              <img src="./estrella 1.png" alt="">
-            </div>
-
-          </a>
-
-          <div class="personaje">
-            <img src="./pickle.png" alt="" />
-            <div class="descripPersonaje">
-              <h4 class="nombre">Pickle Rick</h4>
-              <img src="./estrella 1.png" alt="">
-            </div>
-          </div>
-
-          <a href="./1personaje.html" class="personaje">
-
-            <img src="./bethgritando.png" alt="" />
-            <div class="descripPersonaje">
-              <h4 class="nombre">Beth Smith</h4>
-              <img src="./estrella 1.png" alt="">
-            </div>
-
-          </a>
-
-        </div>
+      <!-- Species -->
+      <div id="species-filters">
+        <h3 class="titles">Especie</h3>
+        <input class="checkbox" type="checkbox" name="species" value="Human" id="Human">
+        <label for="alive">Humano</label>
+        <input class="checkbox" type="checkbox" name="species" value="Alien" id="Alien">
+        <label for="Alien">Alien</label>
       </div>
-
-      <div class="contenidoPersonajes">
-        <div class="arriba">
-          <h1>Merch</h1>
-        </div>
-        <div class="personajesContainer">
-          <div class="carrusel">
-            <div class="merch">
-              <img src="./hoodie.png" alt="" />
-              <div class="descripExtras">
-                <h4 class="nombre">Hoodie R&M</h4>
-                <img src="./estrella 1.png" alt="">
-              </div>
-            </div>
-
-            <a href="./1personaje.html" class="merch">
-
-              <img src="./camisetarick.png" alt="" />
-              <div class="descripExtras">
-                <h4 class="nombre">Camiseta Rick</h4>
-                <img src="./estrella 1.png" alt="">
-              </div>
-
-            </a>
-
-            <div class="merch">
-              <img src="./figura.png" alt="" />
-              <div class="descripExtras">
-                <h4 class="nombre">Figura acción</h4>
-                <img src="./estrella 1.png" alt="">
-              </div>
-            </div>
-
-            <a href="./1personaje.html" class="merch">
-
-              <img src="./hoodien.png" alt="" />
-              <div class="descripExtras">
-                <h4 class="nombre">Hoodie Rick</h4>
-                <img src="./estrella 1.png" alt="">
-              </div>
-
-            </a>
-
-            <div class="merch">
-              <img src="./camisetan.png" alt="" />
-              <div class="descripExtras">
-                <h4 class="nombre">Camiseta Rick</h4>
-                <img src="./estrella 1.png" class="hidden">
-              </div>
-            </div>
-
-          </div>
-        </div>
+      <!-- Gender -->
+      <div id="gender-filters">
+        <h3 class="titles">Genero</h3>
+        <input class="checkbox" type="checkbox" name="gender" value="Male" id="Male">
+        <label for="alive">Hombre</label>
+        <input class="checkbox" type="checkbox" name="gender" value="Female" id="Female">
+        <label for="alive">Mujer</label>
       </div>
-
-      <div class="contenidoPersonajes">
-        <div class="arriba">
-          <h1>Capítulos</h1>
-        </div>
-        <div class="personajesContainer">
-          <div class="carrusel">
-            <div class="capitulos">
-              <img src="./temp2.png" alt="" />
-              <div class="descripExtras">
-                <h4 class="nombre">T2 - E6</h4>
-                <img src="./estrella 1.png" alt="">
-              </div>
-            </div>
-
-            <a href="./1personaje.html" class="capitulos">
-
-              <img src="./temp4.png" alt="" />
-              <div class="descripExtras">
-                <h4 class="nombre">T4 - E1</h4>
-                <img src="./estrella 1.png" alt="">
-              </div>
-
-            </a>
-
-            <div class="capitulos">
-              <img src="./temp5.png" alt="" />
-              <div class="descripExtras">
-                <h4 class="nombre">T5 - E7</h4>
-                <img src="./estrella 1.png" alt="">
-              </div>
-            </div>
-
-            <a href="./1personaje.html" class="capitulos">
-
-              <img src="./temp6.png" alt="" />
-              <div class="descripExtras">
-                <h4 class="nombre">T6 - E3</h4>
-                <img src="./estrella 1.png" alt="">
-              </div>
-
-            </a>
-
-          </div>
-    <footer></footer>
+    </form>
+    <hr>
+  </div>
+  <!-- En este div se renderizan las cartas -->
+  <div id="carrusel"> </div>
+  <!-- Este es el modal de los personajes -->
+  <div id="myModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close" id="closeModalBtn">&times;</span>
+    </div>
+  </div>
+</div>
+<!-- js asociados: 
+    data contiene toda la informacion como si fuera el api; 
+    character list contienen el constructor y el html de las cartas;
+    9personajes registrado contiene Json, la funcion que renderiza las cartas, la funcion de los filtros, las funciones asociadas al modal con el contenido de este -->
+<script src="https://kit.fontawesome.com/f453d0fc9e.js" crossorigin="anonymous"></script>
+<script src="./data.js"></script>
+<script src="./characterlist.js"></script>
+<script src="./8favoritos.js"></script>
   </body>
 </html>

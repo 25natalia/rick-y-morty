@@ -12,41 +12,46 @@
 </head>
 
 <body>
+    <!-- barra de navegacion -->
     <div id="navegacion">
         <nav>
-            <a href="./0index.html"><img src="./Rick_and_Morty.svg.png" height="50px" width="150px"></a>
+            <a href="./index.html"><img src="./Rick_and_Morty.svg.png" height="50px" width="150px"></a>
             <div class="link">
-                <a id="linknav" href="./10personajesNoRegistrado.html">Contenido</a>
-                <a id="linknav" href="./3sobrenosotros.html">Sobre nosotros</a>
+                <a class="linknav" href="./10personajesNoRegistrado.html">Personajes</a>
+                <a class="linknav" href="./3sobrenosotrosNoRegistrado.html">Sobre nosotros</a>
             </div>
         </nav>
     </div>
+    <!-- Formulario registro -->
     <div class="recuadro">
         <h1>Regístrate</h1>
         <form id="registro-form">
+            <!-- Seccion de email -->
             <div class="ingresa">
                 <h2>E-mail</h2>
                 <input type="text" id="registro-email" placeholder="Ingresa tu e-mail" class="entradas" required>
             </div>
-
+            <!-- Seccion de usuario -->
             <div class="ingresa">
                 <h2>Usuario</h2>
                 <input type="text" id="registro-usuario" placeholder="Ingresa tu usuario" class="entradas" required>
             </div>
-
+            <!-- Seccion de telefono -->
             <div class="ingresa">
                 <h2>Número de teléfono</h2>
                 <input type="text" id="registro-telefono" placeholder="Ingresa tu número de teléfono" class="entradas"
                     required>
             </div>
-
+            <!-- Seccion de contraseña -->
             <div class="ingresa">
                 <h2>Contraseña</h2>
                 <input type="password" id="registro-contrasena" placeholder="Ingresa tu contraseña" class="entradas"
                     required>
             </div>
+            <!-- boton para signup -->
             <button type="submit" class="Iniciar-sesion-boton">Crear cuenta</button>
         </form>
+        <!-- Redireccion a Inicio de sesion -->
         <a href="./4Inicio-sesion.html" class="unete">¿Ya eres usuario? Inicia sesión</a>
     </div>
     <script src="./5registro.js"></script>
