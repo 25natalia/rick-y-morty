@@ -1,52 +1,50 @@
-let characters = []
-for (let i = 0; i < data.length; i++) {
-  const characterJson = data[i]
-  const character = new Character(
-    characterJson.id,
-    characterJson.name,
-    characterJson.status,
-    characterJson.species,
-    characterJson.type,
-    characterJson.gender,
-    characterJson.origin,
-    characterJson.location,
-    characterJson.image,
-  )
-  characters.push(character)
+let characters = [];
+
+//saca los characters del api
+async function fetchRickAndMorty() {
+  const response = await fetch("https://rickandmortyapi.com/api/character");
+  const json = await response.json();
+  characters = json.results;
+
+  // Llama a la función para renderizar los personajes después de obtener los datos
+  renderAllCharacters(characters);
 }
+
+// Llama a la función para obtener los datos cuando se carga la página
+fetchRickAndMorty();
 
 //Renderiza todos los personajes en el div carrusel segun el la estructura de las cartas
 function renderAllCharacters(characters) {
-  let container = document.getElementById("carrusel")
-  container.innerHTML = ""
-  for (let i = 0; i < data.length; i++) {
-    const character = characters[i]
-    container.innerHTML += character.toCharacterHtml(i)
+  let container = document.getElementById("carrusel");
+  container.innerHTML = "";
+  for (let i = 0; i < characters.length; i++) {
+    const character = characters[i];
+    container.innerHTML += characterToHtml(character, i);
   }
 }
-renderAllCharacters(characters)
 
 // Función para aplicar los filtros
 function applyFilters() {
-  const characters = document.querySelectorAll('.character');
+  const charactersElements = document.querySelectorAll('.character');
   const selectedStatus = document.querySelector('input[name="status"]:checked');
   const selectedSpecies = document.querySelector('input[name="species"]:checked');
   const selectedGender = document.querySelector('input[name="gender"]:checked');
 
   //data viene de las cartas toCharacterHtml (esta data no se renderiza en las cartas pero se encuentra en el div de estas y tambien cambia segun cada carta)
-  characters.forEach((character) => {
-    const status = character.getAttribute('data-status');
-    const species = character.getAttribute('data-species');
-    const gender = character.getAttribute('data-gender');
+  charactersElements.forEach((characterElement) => {
+    const character = characters[parseInt(characterElement.getAttribute('data-position'))];
+    const status = character.status;
+    const species = character.species;
+    const gender = character.gender;
 
     const statusMatches = !selectedStatus || status === selectedStatus.value;
     const speciesMatches = !selectedSpecies || species === selectedSpecies.value;
     const genderMatches = !selectedGender || gender === selectedGender.value;
 
     if (statusMatches && speciesMatches && genderMatches) {
-      character.style.display = 'block';
+      characterElement.style.display = 'block';
     } else {
-      character.style.display = 'none';
+      characterElement.style.display = 'none';
     }
   });
 }
@@ -96,10 +94,25 @@ genderCheckboxes.forEach((checkbox) => {
 // Llama a applyFilters() para mostrar todos los personajes al cargar la página
 applyFilters();
 
+//Html de cada carta teniendo en cuenta los elementos que cambian por cada carta segun el personaje
+function characterToHtml(character, position) {
+  return `
+    <div class="character" data-position="${position}" data-status="${character.status}" data-species="${character.species}" data-gender="${character.gender}" onclick='openCharacterModal(${position})'>
+      <div class="personaje">
+        <img src="${character.image}" />
+        <div class="descripPersonaje">
+          <h4 class="nombre">${character.name}</h4>
+          <input class="estrellafav" type="checkbox" id="star${character.id}" name="favs${character.id}" value="1" onclick='event.stopPropagation()' >
+          <label for="star${character.id}"  id="star${character.id}label" class="starfav" onclick='event.stopPropagation()'></label>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 // Funcion para abrir el modal
 function openCharacterModal(index) {
   const modal = document.getElementById("myModal");
-  const closeModalBtn = document.getElementById("closeModalBtn");
   const character = characters[index];
 
   // Renderiza el contenido del modal con la información del personaje selecionado en la carta
@@ -122,7 +135,7 @@ function openCharacterModal(index) {
   modal.style.display = "flex";
 
   // Funcion para cerrar el modal al dar click afuera
-   window.addEventListener("click", (event) => {
+  window.addEventListener("click", (event) => {
     if (event.target === modal) {
       modal.style.display = "none";
     }
