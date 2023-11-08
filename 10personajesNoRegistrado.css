@@ -69,7 +69,7 @@ nav {
     justify-content: start;
     height: 100%;
     align-items: center;
-    padding: 9px 20px;
+    padding: 0px 20px;
 }
 
 #navegacion {
@@ -93,15 +93,30 @@ nav {
     cursor: pointer;
     transition: .2seaseall;
     text-decoration: none;
+}
+
+::placeholder {
+    color: white;
     font-size: 18px;
 }
 
 #sn {
-    color: #45c638;
+    color: #45c638 !important;
     cursor: pointer;
     transition: .2s ease all;
     text-decoration: none;
-    font-size: 18px;
+}
+
+#perfil {
+    height: 65px;
+    width: 65px;
+    /* los siguientes valores son independientes del tamaño del círculo */
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 150% auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 /*Titulo, estrella y body*/
@@ -135,6 +150,13 @@ a {
     height: 16px;
     margin-top: 60px;
     margin-bottom: 20px;
+}
+
+.arriba a img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 72%;
+    /*con esto se mueve la estrella dentro de su div*/
 }
 
 #personajes {
@@ -173,17 +195,41 @@ a {
     width: 80%;
     align-items: center;
     font-size: 22px;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .descripPersonaje>h4 {
     margin: 0;
 }
 
-.descripPersonaje>img {
-    width: 15%;
-    height: fit-content;
-}
+.estrellafavs {
+    display: flex;
+    flex-direction: row-reverse; /* Invierte el orden de las estrellas */
+  }
+  
+.estrellafav {
+    display: none; /* Oculta los checkboxes */
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+  }
+  
+.starfav {
+    margin-top: 10px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-image: url('./estrella\ 2.png'); /* Usa una imagen de estrella como fondo */
+    background-size: cover;
+  }
+  
+  .nombre{
+    width: 77%;
+  }
+
+  input[class="estrellafav"]:checked + .starfav {
+    background-image: url('./estrella\ 1.png'); /* Cambia la imagen a una estrella rellena cuando está seleccionada */
+  }
 
 #carrusel {
     display: grid;
@@ -200,6 +246,7 @@ a {
     padding: 0 5%;
 
 }
+
 
 .character {
     margin-bottom: 50px;
