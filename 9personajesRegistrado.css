@@ -95,11 +95,6 @@ nav {
     text-decoration: none;
 }
 
-::placeholder {
-    color: white;
-    font-size: 18px;
-}
-
 #sn {
     color: #45c638 !important;
     cursor: pointer;

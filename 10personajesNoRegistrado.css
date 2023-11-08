@@ -137,6 +137,13 @@ a {
     margin-bottom: 20px;
 }
 
+.arriba a img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 72%;
+    /*con esto se mueve la estrella dentro de su div*/
+}
+
 #personajes {
     color: #fff;
     font-size: 60px;
@@ -173,17 +180,16 @@ a {
     width: 80%;
     align-items: center;
     font-size: 22px;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .descripPersonaje>h4 {
     margin: 0;
 }
-
-.descripPersonaje>img {
-    width: 15%;
-    height: fit-content;
-}
+  
+  .nombre{
+    width: 77%;
+  }
 
 #carrusel {
     display: grid;
@@ -200,6 +206,7 @@ a {
     padding: 0 5%;
 
 }
+
 
 .character {
     margin-bottom: 50px;
