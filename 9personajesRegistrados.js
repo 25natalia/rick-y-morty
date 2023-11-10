@@ -93,6 +93,35 @@ genderCheckboxes.forEach((checkbox) => {
   });
 });
 
+//Estrellitas
+// Obtén todas las etiquetas de las estrellas y los checkboxes
+const estrellas = document.querySelectorAll('estrellafav');
+const checkboxes = document.querySelectorAll('input[class="sratfav"]');
+
+// Recorre todas las estrellas y agrega un evento de clic a cada una
+estrellas.forEach((estrella, index) => {
+  estrella.addEventListener('click', function() {
+    // Marca o desmarca el checkbox correspondiente cuando se hace clic en la estrella
+    checkboxes[index].checked = !checkboxes[index].checked;
+
+    // Guarda el estado de las estrellas en el almacenamiento local
+    const estrellasMarcadas = [];
+    checkboxes.forEach(checkbox => {
+      estrellasMarcadas.push(checkbox.checked);
+    });
+    localStorage.setItem('estrellasMarcadas', JSON.stringify(estrellasMarcadas));
+  });
+});
+
+// Recupera el estado de las estrellas del almacenamiento local cuando se carga la página
+window.addEventListener('load', function() {
+  const estrellasMarcadas = JSON.parse(localStorage.getItem('estrellasMarcadas')) || [];
+  estrellasMarcadas.forEach((marcada, index) => {
+    checkboxes[index].checked = marcada;
+  });
+});
+
+
 // Llama a applyFilters() para mostrar todos los personajes al cargar la página
 applyFilters();
 
