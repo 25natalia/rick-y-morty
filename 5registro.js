@@ -2,58 +2,73 @@
 document.addEventListener("DOMContentLoaded", function () {
     const registroForm = document.getElementById("registro-form");
 
-    //Funcion que se ejecuta al oprimir el boton de crear cuenta
+    // Función que se ejecuta al oprimir el botón de crear cuenta
     registroForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        //Variables tomadas de los inputs proporcionados por el usuario
+        // Variables tomadas de los inputs proporcionados por el usuario
         const email = document.getElementById("registro-email").value;
         const usuario = document.getElementById("registro-usuario").value;
         const telefono = document.getElementById("registro-telefono").value;
         const contrasena = document.getElementById("registro-contrasena").value;
 
-        //El email tiene que tener texto de cualquier tipo+@ con otro texto + . y texto
+        // Requisitos para la información proporcionada
+
+        // El email tiene que tener el formato correcto
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        // SI la condiccion no se cumple aparece una alerta que advierte al usuario
         if (!emailPattern.test(email)) {
             alert("Por favor, ingresa una dirección de correo electrónico válida.");
             return;
         }
 
-        //El usuario tienen que tener entre 6 y 12 caracteres.
+        // El usuario tiene que tener entre 6 y 12 caracteres.
         if (usuario.length < 6 || usuario.length > 12) {
-            // SI la condiccion no se cumple aparece una alerta que advierte al usuario y lo pone al tanto de la estructura requerida
-            alert("El usuario debe tener entre 6 y 12 carácteres.");
+            alert("El usuario debe tener entre 6 y 12 caracteres.");
             return;
         }
 
-        //El telefono tiene que tener exactamente 10 digitos
+        // El teléfono tiene que tener exactamente 10 dígitos
         const phonePattern = /^\d+$/;
         if (!phonePattern.test(telefono) || telefono.length !== 10) {
-            // SI la condiccion no se cumple aparece una alerta que advierte al usuario y lo pone al tanto de la estructura requerida
             alert("El número de teléfono debe contener exactamente 10 dígitos.");
             return;
         }
 
-        //La contrasena tiene que tener al menos 8 caracteres con al menos un número y al menos una letra mayúscula.
+        // La contraseña tiene que tener al menos 8 caracteres con al menos un número y al menos una letra mayúscula.
         if (contrasena.length <= 8 || !/\d/.test(contrasena) || !/[A-Z]/.test(contrasena)) {
-            alert("La contraseña debe tener al menos 8 carácteres con al menos un número y al menos una letra mayúscula.");
+            alert("La contraseña debe tener al menos 8 caracteres con al menos un número y al menos una letra mayúscula.");
             return;
         }
 
-        //Se guarda la informacion proporcionada en los inputs en el local storage en las variables correspondientes a cada uno
-        localStorage.setItem("email", email);
-        localStorage.setItem("usuario", usuario);
-        localStorage.setItem("telefono", telefono);
-        localStorage.setItem("contrasena", contrasena);
+        // Se obtiene el objeto de cuentas almacenado en el local storage, si no existe se crea uno vacío
+        const cuentas = JSON.parse(localStorage.getItem("cuentas")) || {};
 
-        //Se limpian los campos
+        // Se verifica si ya existe una cuenta con el mismo usuario
+        if (cuentas[usuario]) {
+            alert("Ya existe una cuenta con este usuario. Por favor, elige otro usuario.");
+            return;
+        }
+
+        // Se verifica si ya existe una cuenta con el mismo email
+        const existingEmail = Object.values(cuentas).find(account => account.email === email);
+        if (existingEmail) {
+            alert("Este correo electrónico ya está registrado. Por favor, utiliza otro correo electrónico.");
+            return;
+        }
+
+        // Se guarda la información de la cuenta en el objeto de cuentas
+        cuentas[usuario] = { email, telefono, contrasena };
+
+        // Se guarda el objeto de cuentas actualizado en el local storage
+        localStorage.setItem("cuentas", JSON.stringify(cuentas));
+
+        // Se limpian los campos
         document.getElementById("registro-email").value = "";
         document.getElementById("registro-usuario").value = "";
         document.getElementById("registro-telefono").value = "";
         document.getElementById("registro-contrasena").value = "";
 
-        //al hundir el boton de crear cuenta, redirige a la pagina de bienvenido
+        // Redirige a la página de bienvenido
         window.location.href = "./6Bienvenido.html";
     });
 });

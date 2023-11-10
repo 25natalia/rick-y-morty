@@ -1,38 +1,43 @@
-//Funcion que se ejecuta apenas se cargue la pagina
 document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("login-form");
 
-    //Funcion que se ejecuta al oprimir el boton de login
+    // Función que se ejecuta al oprimir el botón de login
     loginForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        //Permite que se registre en el mismo campo o con email o con usuario
+        // Permite que se registre en el mismo campo o con email o con usuario
         const emailOrUsuario = document.getElementById("emailOrUser").value;
         const password = document.getElementById("password").value;
 
-        // Comprobar si se ha registrado con email o usuario
-        let storedEmail = localStorage.getItem("email");
-        let storedUsuario = localStorage.getItem("usuario");
+        // Se obtiene el objeto de cuentas almacenado en el local storage, si no existe se crea uno vacío
+        const cuentas = JSON.parse(localStorage.getItem("cuentas")) || {};
 
-        //Comprueba si el input proporcionado por el usuario corresponde ya sea con el  email o el usuario guardados en local storage, si sí  corresponden, se pasa a comprobar la contrasena comparandola con la guardad en el local storage
-        if (emailOrUsuario === storedEmail || emailOrUsuario === storedUsuario) {
-            let storedPassword = localStorage.getItem("contrasena");
+        // Buscar si existe una cuenta con el email proporcionado
+        const cuentaPorEmail = Object.values(cuentas).find(account => account.email === emailOrUsuario);
 
-            if (password === storedPassword) {
-                // SI las credenciales son correctas
+        // Buscar si existe una cuenta con el usuario proporcionado
+        const cuentaPorUsuario = cuentas[emailOrUsuario];
+
+        // Verificar si la cuenta con el email o usuario proporcionado existe
+        const cuentaEncontrada = cuentaPorEmail || cuentaPorUsuario;
+
+        if (cuentaEncontrada) {
+            // Si se encuentra la cuenta, se compara la contraseña
+            if (password === cuentaEncontrada.contrasena) {
+                // Si las credenciales son correctas
 
                 // Limpia los campos de entrada
                 document.getElementById("emailOrUser").value = "";
                 document.getElementById("password").value = "";
 
-                // Redirige al usuario a la pagina de bienvenido de nuevo
+                // Redirige al usuario a la página de bienvenida
                 window.location.href = "./7holadenuevo.html";
             } else {
-                //SI la contraseña es incorrecta, aparece una alerta que advierte al usuario
+                // Si la contraseña es incorrecta, aparece una alerta que advierte al usuario
                 alert("Contraseña incorrecta. Por favor, verifica tu contraseña.");
             }
         } else {
-            // SI el Email o el usuario es incorrecto, , aparece una alerta que advierte al usuario (se pasa directamente a esto si se determina que no es correcto )
+            // Si el email o el usuario es incorrecto, aparece una alerta que advierte al usuario
             alert("Email o Usuario incorrecto. Por favor, verifica tus credenciales.");
         }
     });
