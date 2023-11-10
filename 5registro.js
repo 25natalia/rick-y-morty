@@ -43,6 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
         // Se obtiene el objeto de cuentas almacenado en el local storage, si no existe se crea uno vacío
         const cuentas = JSON.parse(localStorage.getItem("cuentas")) || [];
 
+        // Se verifica si ya existe una cuenta con el mismo email
+        const existingEmail = cuentas.find(account => account.email === email);
+        if (existingEmail) {
+            alert("Este email ya está registrado. Por favor, utiliza otro email");
+            return;
+        }
+
         // Se verifica si ya existe una cuenta con el mismo usuario
         const existingUsuario = cuentas.find(account => account.usuario === usuario);
         if (existingUsuario) {
@@ -50,18 +57,14 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Se verifica si ya existe una cuenta con el mismo email
-        const existingEmail = Object.values(cuentas).find(account => account.email === email);
-        if (existingEmail) {
-            alert("Este correo electrónico ya está registrado. Por favor, utiliza otro correo electrónico.");
-            return;
-        }
-
         // Se guarda la información de la cuenta en el objeto de cuentas
-        cuentas.push({ email:email, usuario:usuario, telefono:telefono, contrasena:contrasena });
+        cuentas.push({ email: email, usuario: usuario, telefono: telefono, contrasena: contrasena });
 
         // Se guarda el objeto de cuentas actualizado en el local storage
         localStorage.setItem("cuentas", JSON.stringify(cuentas));
+
+        //Cuenta con la que se logueo
+        localStorage.setItem("cuentaIniciada", JSON.stringify({ email: email, usuario: usuario, telefono: telefono, contrasena: contrasena }));
 
         // Se limpian los campos
         document.getElementById("registro-email").value = "";

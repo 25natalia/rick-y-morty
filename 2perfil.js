@@ -212,3 +212,13 @@ window.addEventListener("click", (event) => {
         modal4.style.display = "none";
     }
 });
+
+// Función que se ejecuta al oprimir el botón de Cerrar sesion
+function cerrarSesion(){
+
+            //Borrar la informacion de cuenta iniciada del local storage
+            localStorage.removeItem("cuentaIniciada");
+            
+            // Redirige al usuario a la página de bienvenida
+            window.location.href = "./index.html";
+};
