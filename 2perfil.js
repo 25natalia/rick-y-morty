@@ -1,40 +1,32 @@
 //Funcion que se ejecuta apenas se cargue la pagina
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Usuario
-    const storedUsuario = localStorage.getItem("usuario");
+    // Toma la informacion de cuenta iniciada, la convierte de string a objeto
+    const storedCuenta =  JSON.parse(localStorage.getItem("cuentaIniciada"));
+    console.log(storedCuenta)
 
-    // Lo guardado en el local storage como usuario, se renderiza en username
-    if (storedUsuario) {
+    // Lo guardado en el local storage como cuentaIniciada.usuario, se renderiza en username
+    if (storedCuenta) {
         const usuarioButton = document.getElementById("username");
-        usuarioButton.textContent = storedUsuario;
+        usuarioButton.textContent = storedCuenta.usuario;
     }
-
-    // Email
-    const storedEmail = localStorage.getItem("email");
-
-    // Lo guardado en el local storage como email, se renderiza en email-placeholder
-    if (storedEmail) {
+    
+    // Lo guardado en el local storage como cuentaIniciada.email, se renderiza en email-placeholder
+    if (storedCuenta) {
         const emailPlaceholder = document.getElementById("email-placeholder");
-        emailPlaceholder.textContent = storedEmail;
+        emailPlaceholder.textContent = storedCuenta.email;
     }
-
-    //Telefono
-    const storedTelefono = localStorage.getItem("telefono");
-
-    // Lo guardado en el local storage como telefono, se renderiza en telefono-placeholder
-    if (storedTelefono) {
+    
+    // Lo guardado en el local storage como cuentaIniciada.telefono, se renderiza en telefono-placeholder
+    if (storedCuenta) {
         const telefonoPlaceholder = document.getElementById("telefono-placeholder");
-        telefonoPlaceholder.textContent = storedTelefono;
+        telefonoPlaceholder.textContent = storedCuenta.telefono;
     }
 
-    //Contrasena
-    const storedContrasena = localStorage.getItem("contrasena");
-
-    // Lo guardado en el local storage como contrasena, se renderiza en contrasena-placeholder
-    if (storedContrasena) {
+    // Lo guardado en el local storage como cuentaIniciada.contrasena, se renderiza en contrasena-placeholder
+    if (storedCuenta) {
         const contrasenaPlaceholder = document.getElementById("contrasena-placeholder");
-        contrasenaPlaceholder.textContent = storedContrasena;
+        contrasenaPlaceholder.textContent = storedCuenta.contrasena;
     }
 
 });
