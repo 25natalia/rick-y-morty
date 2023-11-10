@@ -62,20 +62,28 @@ const usuarioInput = document.getElementById("input4");
 
 //Funcion para guardar el nuevo email proporcionado en el input del modal por el usuario
 guardarCambiosBtn.addEventListener("click", () => {
-    const email = emailInput.value;
+    const newemail = emailInput.value;
     //El email tiene que tener texto de cualquier tipo+@ con otro texto + . y texto
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
     // SI la condiccion no se cumple aparece una alerta que advierte al usuario
-    if (!emailPattern.test(email)) {
+    if (!emailPattern.test(newemail)) {
         alert("Por favor, ingresa una dirección de correo electrónico válida.");
         return;
     }
-    //Se guarda la informacion proporcionada en el input en el local storage en email, esto hace que se sobreescriba sobre lo anterior mente guardado y lo reemplace
-    localStorage.setItem("email", email);
+   
+    var storedCuenta =  JSON.parse(localStorage.getItem("cuentaIniciada"));
+    var cuentas = JSON.parse(localStorage.getItem("cuentas"));
+    const cuentaPorEmail = cuentas.find(account => account.email === storedCuenta.email);
+    cuentaPorEmail.email=newemail;
+    localStorage.setItem("cuentas", JSON.stringify(cuentas));
+    storedCuenta.email = newemail;
+    localStorage.setItem("cuentaIniciada", JSON.stringify(storedCuenta));
+
+                
     //Lo recien guardado en el local storage como email, se renderiza en email-placeholder
     const emailPlaceholder = document.getElementById("email-placeholder");
-    emailPlaceholder.textContent = email;
+    emailPlaceholder.textContent = storedCuenta.email;
 });
 
 //Funcion para guardar el nuevo telefono proporcionado en el input del modal por el usuario
