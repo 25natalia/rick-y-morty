@@ -41,11 +41,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Se obtiene el objeto de cuentas almacenado en el local storage, si no existe se crea uno vacío
-        const cuentas = JSON.parse(localStorage.getItem("cuentas")) || {};
+        const cuentas = JSON.parse(localStorage.getItem("cuentas")) || [];
 
         // Se verifica si ya existe una cuenta con el mismo usuario
-        if (cuentas[usuario]) {
-            alert("Ya existe una cuenta con este usuario. Por favor, elige otro usuario.");
+        const existingUsuario = cuentas.find(account => account.usuario === usuario);
+        if (existingUsuario) {
+            alert("Este usuario ya está registrado. Por favor, utiliza otro usuario");
             return;
         }
 
@@ -57,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Se guarda la información de la cuenta en el objeto de cuentas
-        cuentas[usuario] = { email, telefono, contrasena };
+        cuentas.push({ email:email, usuario:usuario, telefono:telefono, contrasena:contrasena });
 
         // Se guarda el objeto de cuentas actualizado en el local storage
         localStorage.setItem("cuentas", JSON.stringify(cuentas));
