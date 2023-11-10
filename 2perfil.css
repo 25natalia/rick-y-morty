@@ -206,8 +206,8 @@ body {
     flex-direction: column;
     background-color: white;
     border-radius: 25px;
-    min-width: 1000px;
-    min-height: 600px;
+    min-width: 900px;
+    min-height: 400px;
     margin: 0px;
     padding-left: 40px;
     padding-right: 40px;
@@ -294,20 +294,20 @@ a {
 #infoabajo {
     display: flex;
     justify-content: center;
+    padding-bottom: 30px;
 }
 
-#registro {
-    display: flex;
-    justify-content: center;
-}
-
-.otracuenta {
-    margin: 0;
-}
-
-.redes {
-    width: 15%;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 40px;
+#cerrarSesion {
+    background-color: rgb(4, 173, 198);
+    color: #fff;
+    border-radius: 30px;
+    height: 30px;
+    width: 160px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    border-style: none;
+    font-size: 13px ;
 }
