@@ -88,57 +88,76 @@ guardarCambiosBtn.addEventListener("click", () => {
 
 //Funcion para guardar el nuevo telefono proporcionado en el input del modal por el usuario
 guardarCambiosBtn2.addEventListener("click", () => {
-    const telefono = telefonoInput.value;
+    const newtelefono = telefonoInput.value;
     //El telefono tiene que tener exactamente 10 digitos
     const telefonoPattern = /^\d+$/;
     // SI la condiccion no se cumple aparece una alerta que advierte al usuario y lo pone al tanto de la estructura requerida
-    if (!telefonoPattern.test(telefono) || telefono.length !== 10) {
+    if (!telefonoPattern.test(newtelefono) || newtelefono.length !== 10) {
         alert("El número de teléfono debe contener exactamente 10 números.");
         return;
     }
-    //Se guarda la informacion proporcionada en el input en el local storage en telefono, esto hace que se sobreescriba sobre lo anterior mente guardado y lo reemplace
-    localStorage.setItem("telefono", telefono);
+    
+    var storedCuenta =  JSON.parse(localStorage.getItem("cuentaIniciada"));
+    var cuentas = JSON.parse(localStorage.getItem("cuentas"));
+    const cuentaPorTelefono = cuentas.find(account => account.telefono === storedCuenta.telefono);
+    cuentaPorTelefono.telefono=newtelefono;
+    localStorage.setItem("cuentas", JSON.stringify(cuentas));
+    storedCuenta.telefono = newtelefono;
+    localStorage.setItem("cuentaIniciada", JSON.stringify(storedCuenta));
+
     //Lo recien guardado en el local storage como telefono, se renderiza en telefono-placeholder
     const telefonoPlaceholder = document.getElementById("telefono-placeholder");
-    telefonoPlaceholder.textContent = telefono;
+    telefonoPlaceholder.textContent = storedCuenta.telefono;
 });
 
 //Funcion para guardar la nueva contrasena  proporcionada en el input del modal por el usuario
 guardarCambiosBtn3.addEventListener("click", () => {
-    const contrasena = contrasenaInput.value;
+    const newcontrasena = contrasenaInput.value;
     //la contrasena debe tener al menos un numero
-    const contrasenaPattern = /\d/.test(contrasena);
+    const contrasenaPattern = /\d/.test(newcontrasena);
     //la contrasena debe tener al menos una letra capital
-    const contrasenaCapital = /[A-Z]/.test(contrasena);
+    const contrasenaCapital = /[A-Z]/.test(newcontrasena);
     //la contrasena debe tener minimo 8 caracteres
     // SI las condiccions no se cumple aparece una alerta que advierte al usuario y lo pone al tanto de la estructura requerida
-    if (contrasena.length <= 8 || !contrasenaPattern || !contrasenaCapital) {
+    if (newcontrasena.length <= 8 || !contrasenaPattern || !contrasenaCapital) {
         alert("La contraseña debe tener al menos 8 caracteres con al menos un número y al menos una letra mayúscula.");
         return;
     }
 
-    //Se guarda la informacion proporcionada en el input en el local storage en contrasena, esto hace que se sobreescriba sobre lo anterior mente guardado y lo reemplace
-    localStorage.setItem("contrasena", contrasena);
+    var storedCuenta =  JSON.parse(localStorage.getItem("cuentaIniciada"));
+    var cuentas = JSON.parse(localStorage.getItem("cuentas"));
+    const cuentaPorContrasena = cuentas.find(account => account.contrasena === storedCuenta.contrasena);
+    cuentaPorContrasena.contrasena=newcontrasena;
+    localStorage.setItem("cuentas", JSON.stringify(cuentas));
+    storedCuenta.contrasena = newcontrasena;
+    localStorage.setItem("cuentaIniciada", JSON.stringify(storedCuenta));
+
     //Lo recien guardado en el local storage como contrasena, se renderiza en contrasena-placeholder
     const contrasenaPlaceholder = document.getElementById("contrasena-placeholder");
-    contrasenaPlaceholder.textContent = contrasena;
+    contrasenaPlaceholder.textContent = storedCuenta.contrasena;
 });
 
 //Funcion para guardar el nuevo usuario  proporcionado en el input del modal por el usuario
 guardarCambiosBtn4.addEventListener("click", () => {
-    const usuario = usuarioInput.value;
+    const newusuario = usuarioInput.value;
     //El usuario tienen que tener entre 6 y 12 caracteres.
     // SI la condiccion no se cumple aparece una alerta que advierte al usuario y lo pone al tanto de la estructura requerida
-    if (usuario.length < 6 || usuario.length > 12) {
+    if (newusuario.length < 6 || newusuario.length > 12) {
         alert("El usuario debe tener entre 6 y 12 caracteres.");
         return;
     }
 
-    //Se guarda la informacion proporcionada en el input en el local storage en usuario, esto hace que se sobreescriba sobre lo anterior mente guardado y lo reemplace
-    localStorage.setItem("usuario", usuario);
+    var storedCuenta =  JSON.parse(localStorage.getItem("cuentaIniciada"));
+    var cuentas = JSON.parse(localStorage.getItem("cuentas"));
+    const cuentaPorUsuario = cuentas.find(account => account.usuario === storedCuenta.usuario);
+    cuentaPorUsuario.usuario=newusuario;
+    localStorage.setItem("cuentas", JSON.stringify(cuentas));
+    storedCuenta.usuario = newusuario;
+    localStorage.setItem("cuentaIniciada", JSON.stringify(storedCuenta));
+
     //Lo recien guardado en el local storage como usuario, se renderiza en username
     const usuarioButton = document.getElementById("username");
-    usuarioButton.textContent = usuario;
+    usuarioButton.textContent = storedCuenta.usuario;
 });
 
 //email
