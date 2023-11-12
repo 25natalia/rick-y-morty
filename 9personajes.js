@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
       <nav>
           <a href="./index.html"><img src="./Rick_and_Morty.svg.png" height="50px" width="150px"></a>
           <div class="link">
-              <a class="linknav" href="./10personajesNoRegistrado.html">Personajes</a>
-              <a id="sn" href="./3sobrenosotros">Sobre nosotros</a>
+              <a class="linknav" id="sn" href="./9personajes.html">Personajes</a>
+              <a class="linknav" href="./3sobrenosotros.html">Sobre nosotros</a>
               <a class="linknav" href="./5registro.html">Registrarse</a>
               <a class="linknav" href="./4Inicio-sesion.html">Iniciar de sesión</a>
           </div>
@@ -53,8 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
               <a href="./7holadenuevo.html"><img src="./Rick_and_Morty.svg.png" height="50px" width="150px"></a>
               <div class="link">
                   <a class="linknav" href="./8favoritos.html">Favoritos</a>
-                  <a class="linknav" href="./9personajesRegistrado.html">Personajes</a>
-                  <a class="linknav" id="sn" href="./3sobrenosotros.html">Sobre nosotros</a>
+                  <a class="linknav" id="sn" href="./9personajes.html">Personajes</a>
+                  <a class="linknav" href="./3sobrenosotros.html">Sobre nosotros</a>
               </div>
               <a href="./2perfil.html">
                   <div id="perfil" ></div>
@@ -62,6 +62,21 @@ document.addEventListener("DOMContentLoaded", function () {
           </nav>
       `;
   }
+
+  //cambia el div de id=arriba de la pagina en funcion de si hay cuenta Iniciada o no
+  if (!cuentaIniciada) {
+    // No hay cuenta iniciada
+    document.getElementById("arriba").innerHTML = `
+    <h1 id="personajes">Personajes</h1>
+      `;
+  } else {
+    // Hay cuenta iniciada
+    document.getElementById("arriba").innerHTML = `
+    <h1 id="personajes">Personajes</h1>
+    <a href="./8favoritos.html"><img src="./Estrella principal.png" alt=""></a>
+      `;
+  }
+
 
   //saca los characters del api
   async function fetchRickAndMorty() {
