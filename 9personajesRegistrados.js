@@ -1,27 +1,92 @@
 let characters = [];
 
-//saca los characters del api
-async function fetchRickAndMorty() {
-  const response = await fetch("https://rickandmortyapi.com/api/character");
-  const json = await response.json();
-  characters = json.results;
+document.addEventListener("DOMContentLoaded", function () {
+  const cuentaIniciada = JSON.parse(localStorage.getItem("cuentaIniciada"));
 
-  // Llama a la función para renderizar los personajes después de obtener los datos
-  renderAllCharacters(characters);
-}
-
-// Llama a la función para obtener los datos cuando se carga la página
-fetchRickAndMorty();
-
-//Renderiza todos los personajes en el div carrusel segun el la estructura de las cartas
-function renderAllCharacters(characters) {
-  let container = document.getElementById("carrusel");
-  container.innerHTML = "";
-  for (let i = 0; i < characters.length; i++) {
-    const character = characters[i];
-    container.innerHTML += characterToHtml(character, i);
+  //cambia la carta en funcion de si hay cuenta Iniciada o no
+  function characterToHtml(character, position) {
+    if (!cuentaIniciada) {
+      return `
+              <div class="character" data-position="${position}" data-status="${character.status}" data-species="${character.species}" data-gender="${character.gender}" onclick='openCharacterModal(${position})'>
+                  <div class="personaje">
+                      <img src="${character.image}" />
+                      <div class="descripPersonaje">
+                          <h4 class="nombre">${character.name}</h4>
+                      </div>
+                  </div>
+              </div>
+          `;
+    } else {
+      return `
+              <div class="character" data-position="${position}" data-status="${character.status}" data-species="${character.species}" data-gender="${character.gender}" onclick='openCharacterModal(${position})'>
+                  <div class="personaje">
+                      <img src="${character.image}" />
+                      <div class="descripPersonaje">
+                          <h4 class="nombre">${character.name}</h4>
+                          <input class="estrellafav" type="checkbox" id="star${character.id}" name="favs${character.id}" value="1" onclick='event.stopPropagation()' >
+                          <label for="star${character.id}"  id="star${character.id}label" class="starfav" onclick='event.stopPropagation()'></label>
+                      </div>
+                  </div>
+              </div>
+          `;
+    }
   }
-}
+
+  //cambia de barra en funcion de si hay cuenta Iniciada o no
+  if (!cuentaIniciada) {
+    // No hay cuenta iniciada
+    document.getElementById("navegacion").innerHTML = `
+      <nav>
+          <a href="./index.html"><img src="./Rick_and_Morty.svg.png" height="50px" width="150px"></a>
+          <div class="link">
+              <a class="linknav" href="./10personajesNoRegistrado.html">Personajes</a>
+              <a id="sn" href="./3sobrenosotros">Sobre nosotros</a>
+              <a class="linknav" href="./5registro.html">Registrarse</a>
+              <a class="linknav" href="./4Inicio-sesion.html">Iniciar de sesión</a>
+          </div>
+      </nav>
+      `;
+  } else {
+    // Hay cuenta iniciada
+    document.getElementById("navegacion").innerHTML = `
+          <nav>
+              <a href="./7holadenuevo.html"><img src="./Rick_and_Morty.svg.png" height="50px" width="150px"></a>
+              <div class="link">
+                  <a class="linknav" href="./8favoritos.html">Favoritos</a>
+                  <a class="linknav" href="./9personajesRegistrado.html">Personajes</a>
+                  <a class="linknav" id="sn" href="./3sobrenosotros.html">Sobre nosotros</a>
+              </div>
+              <a href="./2perfil.html">
+                  <div id="perfil" ></div>
+              </a>
+          </nav>
+      `;
+  }
+
+  //saca los characters del api
+  async function fetchRickAndMorty() {
+    const response = await fetch("https://rickandmortyapi.com/api/character");
+    const json = await response.json();
+    characters = json.results;
+
+    // Llama a la función para renderizar los personajes después de obtener los datos
+    renderAllCharacters(characters);
+  }
+
+  // Llama a la función para obtener los datos cuando se carga la página
+  fetchRickAndMorty();
+
+  //Renderiza todos los personajes en el div carrusel segun el la estructura de las cartas
+  function renderAllCharacters(characters) {
+    let container = document.getElementById("carrusel");
+    container.innerHTML = "";
+    for (let i = 0; i < characters.length; i++) {
+      const character = characters[i];
+      container.innerHTML += characterToHtml(character, i);
+    }
+  }
+
+});
 
 // Función para aplicar los filtros
 function applyFilters() {
@@ -93,22 +158,6 @@ genderCheckboxes.forEach((checkbox) => {
 
 // Llama a applyFilters() para mostrar todos los personajes al cargar la página
 applyFilters();
-
-//Html de cada carta teniendo en cuenta los elementos que cambian por cada carta segun el personaje
-function characterToHtml(character, position) {
-  return `
-    <div class="character" data-position="${position}" data-status="${character.status}" data-species="${character.species}" data-gender="${character.gender}" onclick='openCharacterModal(${position})'>
-      <div class="personaje">
-        <img src="${character.image}" />
-        <div class="descripPersonaje">
-          <h4 class="nombre">${character.name}</h4>
-          <input class="estrellafav" type="checkbox" id="star${character.id}" name="favs${character.id}" value="1" onclick='event.stopPropagation()' >
-          <label for="star${character.id}"  id="star${character.id}label" class="starfav" onclick='event.stopPropagation()'></label>
-        </div>
-      </div>
-    </div>
-  `;
-}
 
 // Funcion para abrir el modal
 function openCharacterModal(index) {

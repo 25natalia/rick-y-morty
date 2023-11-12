@@ -33,14 +33,10 @@ nav {
     text-decoration: none;
 }
 
-::placeholder {
-    color: white;
-    font-size: 18px;
-}
-
 #perfil {
     height: 65px;
     width: 65px;
+    background-image: url(./foto\ pp\ rick.avif);
     /* los siguientes valores son independientes del tamaño del círculo */
     background-repeat: no-repeat;
     background-position: 50%;
@@ -90,7 +86,7 @@ nav {
     padding-bottom: 10px;
     text-decoration: none;
     border-style: none;
-    font-size: 13px ;
+    font-size: 13px;
 }
 
 #openModalBtn:hover,
@@ -309,5 +305,5 @@ a {
     padding-bottom: 8px;
     text-decoration: none;
     border-style: none;
-    font-size: 13px ;
+    font-size: 13px;
 }
