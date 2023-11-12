@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // La contraseña tiene que tener al menos 8 caracteres con al menos un número y al menos una letra mayúscula.
-        if (contrasena.length <= 8 || !/\d/.test(contrasena) || !/[A-Z]/.test(contrasena)) {
+        if (contrasena.length <= 7 || !/\d/.test(contrasena) || !/[A-Z]/.test(contrasena)) {
             alert("La contraseña debe tener al menos 8 caracteres con al menos un número y al menos una letra mayúscula.");
             return;
         }

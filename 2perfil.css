@@ -207,7 +207,7 @@ body {
     background-color: white;
     border-radius: 25px;
     min-width: 900px;
-    min-height: 400px;
+    min-height: 450px;
     margin: 0px;
     padding-left: 40px;
     padding-right: 40px;
@@ -294,14 +294,14 @@ a {
 #infoabajo {
     display: flex;
     justify-content: center;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
 }
 
 #cerrarSesion {
     background-color: rgb(4, 173, 198);
     color: #fff;
     border-radius: 30px;
-    height: 30px;
+    height: 40px;
     width: 160px;
     padding-left: 30px;
     padding-right: 30px;
