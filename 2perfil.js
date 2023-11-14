@@ -1,40 +1,32 @@
 //Funcion que se ejecuta apenas se cargue la pagina
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Usuario
-    const storedUsuario = localStorage.getItem("usuario");
+    // Toma la informacion de cuenta iniciada, la convierte de string a objeto
+    const storedCuenta = JSON.parse(localStorage.getItem("cuentaIniciada"));
+    console.log(storedCuenta)
 
-    // Lo guardado en el local storage como usuario, se renderiza en username
-    if (storedUsuario) {
+    // Lo guardado en el local storage como cuentaIniciada.usuario, se renderiza en username
+    if (storedCuenta) {
         const usuarioButton = document.getElementById("username");
-        usuarioButton.textContent = storedUsuario;
+        usuarioButton.textContent = storedCuenta.usuario;
     }
 
-    // Email
-    const storedEmail = localStorage.getItem("email");
-
-    // Lo guardado en el local storage como email, se renderiza en email-placeholder
-    if (storedEmail) {
+    // Lo guardado en el local storage como cuentaIniciada.email, se renderiza en email-placeholder
+    if (storedCuenta) {
         const emailPlaceholder = document.getElementById("email-placeholder");
-        emailPlaceholder.textContent = storedEmail;
+        emailPlaceholder.textContent = storedCuenta.email;
     }
 
-    //Telefono
-    const storedTelefono = localStorage.getItem("telefono");
-
-    // Lo guardado en el local storage como telefono, se renderiza en telefono-placeholder
-    if (storedTelefono) {
+    // Lo guardado en el local storage como cuentaIniciada.telefono, se renderiza en telefono-placeholder
+    if (storedCuenta) {
         const telefonoPlaceholder = document.getElementById("telefono-placeholder");
-        telefonoPlaceholder.textContent = storedTelefono;
+        telefonoPlaceholder.textContent = storedCuenta.telefono;
     }
 
-    //Contrasena
-    const storedContrasena = localStorage.getItem("contrasena");
-
-    // Lo guardado en el local storage como contrasena, se renderiza en contrasena-placeholder
-    if (storedContrasena) {
+    // Lo guardado en el local storage como cuentaIniciada.contrasena, se renderiza en contrasena-placeholder
+    if (storedCuenta) {
         const contrasenaPlaceholder = document.getElementById("contrasena-placeholder");
-        contrasenaPlaceholder.textContent = storedContrasena;
+        contrasenaPlaceholder.textContent = storedCuenta.contrasena;
     }
 
 });
@@ -68,77 +60,121 @@ const modal4 = document.getElementById("myModal4");
 const guardarCambiosBtn4 = document.getElementById("guardar-cambios4");
 const usuarioInput = document.getElementById("input4");
 
-//Funcion para guardar el nuevo email proporcionado en el input del modal por el usuario
+// Funcion para guardar el nuevo email proporcionado en el input del modal por el usuario
 guardarCambiosBtn.addEventListener("click", () => {
-    const email = emailInput.value;
-    //El email tiene que tener texto de cualquier tipo+@ con otro texto + . y texto
+    const newemail = emailInput.value;
+    // El email tiene que tener texto de cualquier tipo + @ con otro texto + . y texto
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-    // SI la condiccion no se cumple aparece una alerta que advierte al usuario
-    if (!emailPattern.test(email)) {
+    // Si la condición no se cumple aparece una alerta que advierte al usuario
+    if (!emailPattern.test(newemail)) {
         alert("Por favor, ingresa una dirección de correo electrónico válida.");
         return;
     }
-    //Se guarda la informacion proporcionada en el input en el local storage en email, esto hace que se sobreescriba sobre lo anterior mente guardado y lo reemplace
-    localStorage.setItem("email", email);
-    //Lo recien guardado en el local storage como email, se renderiza en email-placeholder
+
+    // Verificar que el nuevo correo electrónico sea único
+    var cuentas = JSON.parse(localStorage.getItem("cuentas"));
+    const emailExistente = cuentas.some(account => account.email === newemail);
+
+    if (emailExistente) {
+        alert("Este correo electrónico ya está en uso. Por favor, elige otro.");
+        return;
+    }
+
+    // Continuar con la actualización si el nuevo correo es único
+    var storedCuenta = JSON.parse(localStorage.getItem("cuentaIniciada"));
+    const cuentaPorEmail = cuentas.find(account => account.email === storedCuenta.email);
+    cuentaPorEmail.email = newemail;
+    localStorage.setItem("cuentas", JSON.stringify(cuentas));
+    storedCuenta.email = newemail;
+    localStorage.setItem("cuentaIniciada", JSON.stringify(storedCuenta));
+
+    // Lo recién guardado en el local storage como email, se renderiza en email-placeholder
     const emailPlaceholder = document.getElementById("email-placeholder");
-    emailPlaceholder.textContent = email;
+    emailPlaceholder.textContent = storedCuenta.email;
 });
 
 //Funcion para guardar el nuevo telefono proporcionado en el input del modal por el usuario
 guardarCambiosBtn2.addEventListener("click", () => {
-    const telefono = telefonoInput.value;
+    const newtelefono = telefonoInput.value;
     //El telefono tiene que tener exactamente 10 digitos
     const telefonoPattern = /^\d+$/;
     // SI la condiccion no se cumple aparece una alerta que advierte al usuario y lo pone al tanto de la estructura requerida
-    if (!telefonoPattern.test(telefono) || telefono.length !== 10) {
+    if (!telefonoPattern.test(newtelefono) || newtelefono.length !== 10) {
         alert("El número de teléfono debe contener exactamente 10 números.");
         return;
     }
-    //Se guarda la informacion proporcionada en el input en el local storage en telefono, esto hace que se sobreescriba sobre lo anterior mente guardado y lo reemplace
-    localStorage.setItem("telefono", telefono);
+
+    var storedCuenta = JSON.parse(localStorage.getItem("cuentaIniciada"));
+    var cuentas = JSON.parse(localStorage.getItem("cuentas"));
+    const cuentaPorTelefono = cuentas.find(account => account.telefono === storedCuenta.telefono);
+    cuentaPorTelefono.telefono = newtelefono;
+    localStorage.setItem("cuentas", JSON.stringify(cuentas));
+    storedCuenta.telefono = newtelefono;
+    localStorage.setItem("cuentaIniciada", JSON.stringify(storedCuenta));
+
     //Lo recien guardado en el local storage como telefono, se renderiza en telefono-placeholder
     const telefonoPlaceholder = document.getElementById("telefono-placeholder");
-    telefonoPlaceholder.textContent = telefono;
+    telefonoPlaceholder.textContent = storedCuenta.telefono;
 });
 
 //Funcion para guardar la nueva contrasena  proporcionada en el input del modal por el usuario
 guardarCambiosBtn3.addEventListener("click", () => {
-    const contrasena = contrasenaInput.value;
+    const newcontrasena = contrasenaInput.value;
     //la contrasena debe tener al menos un numero
-    const contrasenaPattern = /\d/.test(contrasena);
+    const contrasenaPattern = /\d/.test(newcontrasena);
     //la contrasena debe tener al menos una letra capital
-    const contrasenaCapital = /[A-Z]/.test(contrasena);
+    const contrasenaCapital = /[A-Z]/.test(newcontrasena);
     //la contrasena debe tener minimo 8 caracteres
     // SI las condiccions no se cumple aparece una alerta que advierte al usuario y lo pone al tanto de la estructura requerida
-    if (contrasena.length <= 8 || !contrasenaPattern || !contrasenaCapital) {
+    if (newcontrasena.length <= 7 || !contrasenaPattern || !contrasenaCapital) {
         alert("La contraseña debe tener al menos 8 caracteres con al menos un número y al menos una letra mayúscula.");
         return;
     }
 
-    //Se guarda la informacion proporcionada en el input en el local storage en contrasena, esto hace que se sobreescriba sobre lo anterior mente guardado y lo reemplace
-    localStorage.setItem("contrasena", contrasena);
+    var storedCuenta = JSON.parse(localStorage.getItem("cuentaIniciada"));
+    var cuentas = JSON.parse(localStorage.getItem("cuentas"));
+    const cuentaPorContrasena = cuentas.find(account => account.contrasena === storedCuenta.contrasena);
+    cuentaPorContrasena.contrasena = newcontrasena;
+    localStorage.setItem("cuentas", JSON.stringify(cuentas));
+    storedCuenta.contrasena = newcontrasena;
+    localStorage.setItem("cuentaIniciada", JSON.stringify(storedCuenta));
+
     //Lo recien guardado en el local storage como contrasena, se renderiza en contrasena-placeholder
     const contrasenaPlaceholder = document.getElementById("contrasena-placeholder");
-    contrasenaPlaceholder.textContent = contrasena;
+    contrasenaPlaceholder.textContent = storedCuenta.contrasena;
 });
 
-//Funcion para guardar el nuevo usuario  proporcionado en el input del modal por el usuario
+// Funcion para guardar el nuevo usuario proporcionado en el input del modal por el usuario
 guardarCambiosBtn4.addEventListener("click", () => {
-    const usuario = usuarioInput.value;
-    //El usuario tienen que tener entre 6 y 12 caracteres.
-    // SI la condiccion no se cumple aparece una alerta que advierte al usuario y lo pone al tanto de la estructura requerida
-    if (usuario.length < 6 || usuario.length > 12) {
+    const newusuario = usuarioInput.value;
+    // El usuario debe tener entre 6 y 12 caracteres.
+    // Si la condición no se cumple aparece una alerta que advierte al usuario y lo pone al tanto de la estructura requerida
+    if (newusuario.length < 6 || newusuario.length > 12) {
         alert("El usuario debe tener entre 6 y 12 caracteres.");
         return;
     }
 
-    //Se guarda la informacion proporcionada en el input en el local storage en usuario, esto hace que se sobreescriba sobre lo anterior mente guardado y lo reemplace
-    localStorage.setItem("usuario", usuario);
-    //Lo recien guardado en el local storage como usuario, se renderiza en username
+    // Verificar que el nuevo nombre de usuario sea único
+    var cuentas = JSON.parse(localStorage.getItem("cuentas"));
+    const usuarioExistente = cuentas.some(account => account.usuario === newusuario);
+
+    if (usuarioExistente) {
+        alert("Este nombre de usuario ya está en uso. Por favor, elige otro.");
+        return;
+    }
+
+    // Continuar con la actualización si el nuevo nombre de usuario es único
+    var storedCuenta = JSON.parse(localStorage.getItem("cuentaIniciada"));
+    const cuentaPorUsuario = cuentas.find(account => account.usuario === storedCuenta.usuario);
+    cuentaPorUsuario.usuario = newusuario;
+    localStorage.setItem("cuentas", JSON.stringify(cuentas));
+    storedCuenta.usuario = newusuario;
+    localStorage.setItem("cuentaIniciada", JSON.stringify(storedCuenta));
+
+    // Lo recién guardado en el local storage como usuario, se renderiza en username
     const usuarioButton = document.getElementById("username");
-    usuarioButton.textContent = usuario;
+    usuarioButton.textContent = storedCuenta.usuario;
 });
 
 //email
@@ -212,3 +248,13 @@ window.addEventListener("click", (event) => {
         modal4.style.display = "none";
     }
 });
+
+// Función que se ejecuta al oprimir el botón de Cerrar sesion
+function cerrarSesion() {
+
+    //Borrar la informacion de cuenta iniciada del local storage
+    localStorage.removeItem("cuentaIniciada");
+
+    // Redirige al usuario a la página de bienvenida
+    window.location.href = "./index.html";
+};

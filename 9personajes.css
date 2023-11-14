@@ -67,7 +67,7 @@ nav {
     display: flex;
     width: 100%-40px;
     justify-content: start;
-    height: 100%;
+    min-height: 75px;
     align-items: center;
     padding: 0px 20px;
 }
@@ -95,11 +95,6 @@ nav {
     text-decoration: none;
 }
 
-::placeholder {
-    color: white;
-    font-size: 18px;
-}
-
 #sn {
     color: #45c638 !important;
     cursor: pointer;
@@ -110,6 +105,7 @@ nav {
 #perfil {
     height: 65px;
     width: 65px;
+    background-image: url(./foto\ pp\ rick.avif);
     /* los siguientes valores son independientes del tamaño del círculo */
     background-repeat: no-repeat;
     background-position: 50%;
@@ -143,7 +139,7 @@ a {
     /*arriba, a los lados, abajo*/
 }
 
-.arriba {
+#arriba {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -152,7 +148,7 @@ a {
     margin-bottom: 20px;
 }
 
-.arriba a img {
+#arriba a img {
     width: 100%;
     height: auto;
     margin-bottom: 72%;
@@ -204,32 +200,36 @@ a {
 
 .estrellafavs {
     display: flex;
-    flex-direction: row-reverse; /* Invierte el orden de las estrellas */
-  }
-  
+    flex-direction: row-reverse;
+    /* Invierte el orden de las estrellas */
+}
+
 .estrellafav {
-    display: none; /* Oculta los checkboxes */
+    display: none;
+    /* Oculta los checkboxes */
     margin-top: 10px;
     width: 40px;
     height: 40px;
-  }
-  
+}
+
 .starfav {
     margin-top: 10px;
     cursor: pointer;
     width: 40px;
     height: 40px;
-    background-image: url('./estrella\ 2.png'); /* Usa una imagen de estrella como fondo */
+    background-image: url('./estrella\ 2.png');
+    /* Usa una imagen de estrella como fondo */
     background-size: cover;
-  }
-  
-  .nombre{
-    width: 77%;
-  }
+}
 
-  input[class="estrellafav"]:checked + .starfav {
-    background-image: url('./estrella\ 1.png'); /* Cambia la imagen a una estrella rellena cuando está seleccionada */
-  }
+.nombre {
+    width: 77%;
+}
+
+input[class="estrellafav"]:checked+.starfav {
+    background-image: url('./estrella\ 1.png');
+    /* Cambia la imagen a una estrella rellena cuando está seleccionada */
+}
 
 #carrusel {
     display: grid;
