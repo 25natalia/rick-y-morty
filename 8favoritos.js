@@ -13,15 +13,25 @@ async function fetchRickAndMorty() {
 // Llama a la función para obtener los datos cuando se carga la página
 fetchRickAndMorty();
 
-//Renderiza todos los personajes en el div carrusel segun el la estructura de las cartas
 function renderAllCharacters(characters) {
   let container = document.getElementById("carrusel");
   container.innerHTML = "";
-  for (let i = 0; i < 7; i++) {
+  
+  const cuentaIniciada = JSON.parse(localStorage.getItem("cuentaIniciada")) || { favoritos: [] };
+
+  for (let i = 0; i < characters.length; i++) {
     const character = characters[i];
-    container.innerHTML += characterToHtml(character, i);
+    
+    // Verificar si el characterId está en la lista de favoritos
+    const isFavorite = cuentaIniciada.favoritos.includes(character.id);
+
+    // Solo renderizar si el personaje está en favoritos
+    if (isFavorite) {
+      container.innerHTML += characterToHtml(character, i);
+    }
   }
 }
+
 
 // Función para aplicar los filtros
 function applyFilters() {
