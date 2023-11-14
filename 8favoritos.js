@@ -32,6 +32,55 @@ function renderAllCharacters(characters) {
   }
 }
 
+// Función para cambiar el estado de favorito de un personaje
+function toggleFavorite(characterId) {
+  const cuentaIniciada = JSON.parse(localStorage.getItem("cuentaIniciada")) || { favoritos: [] };
+
+  // Asegurarse de que cuentaIniciada.favoritos sea un array
+  cuentaIniciada.favoritos = cuentaIniciada.favoritos || [];
+
+  const personajeFavorito = cuentaIniciada.favoritos.find(fav => fav === characterId);
+
+  if (personajeFavorito) {
+    // Si el personaje ya está en favoritos, lo removemos
+    cuentaIniciada.favoritos = cuentaIniciada.favoritos.filter(fav => fav !== characterId);
+  } else {
+    // Si el personaje no está en favoritos, lo agregamos
+    cuentaIniciada.favoritos.push(characterId);
+  }
+
+  // Actualizamos la cuenta iniciada en el local storage
+  localStorage.setItem("cuentaIniciada", JSON.stringify(cuentaIniciada));
+
+  // También actualizamos la lista de favoritos en la lista de cuentas
+  const cuentas = JSON.parse(localStorage.getItem("cuentas")) || [];
+  const cuentaEncontrada = cuentas.find(account => account.email === cuentaIniciada.email);
+
+  if (cuentaEncontrada) {
+    cuentaEncontrada.favoritos = cuentaIniciada.favoritos;
+    localStorage.setItem("cuentas", JSON.stringify(cuentas));
+  }
+
+  // Actualizar el estado del botón de favorito en la UI
+  const starCheckbox = document.getElementById(`star${characterId}`);
+  if (starCheckbox) {
+    starCheckbox.checked = !personajeFavorito; // Invertir el estado del checkbox
+
+    // Remover la carta de la lista de favoritos en la página de favoritos
+    if (!starCheckbox.checked) {
+      const favoritosContainer = document.getElementById("carrusel");
+      const characterElement = document.querySelector(`.character[data-position="${characterId}"]`);
+      if (characterElement) {
+        favoritosContainer.removeChild(characterElement);
+      }
+    }
+  }
+
+  // Renderizar las cartas después de actualizar la lista de favoritos
+  renderAllCharacters(characters);
+}
+
+
 
 // Función para aplicar los filtros
 function applyFilters() {
@@ -112,7 +161,7 @@ function characterToHtml(character, position) {
         <img src="${character.image}" />
         <div class="descripPersonaje">
           <h4 class="nombre">${character.name}</h4>
-          <input class="estrellafav" type="checkbox" id="star${character.id}" name="favs${character.id}" value="1" onclick='event.stopPropagation()' >
+          <input class="estrellafav" type="checkbox" id="star${character.id}" name="favs${character.id}" value="1" onclick='event.stopPropagation(); toggleFavorite(${character.id})' >
           <label for="star${character.id}"  id="star${character.id}label" class="starfav" onclick='event.stopPropagation()'></label>
         </div>
       </div>
