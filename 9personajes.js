@@ -33,7 +33,17 @@ function toggleFavorite(characterId) {
   const starCheckbox = document.getElementById(`star${characterId}`);
   if (starCheckbox) {
     starCheckbox.checked = !personajeFavorito; // Invertir el estado del checkbox
+
+    // Remover la carta de la lista de favoritos en la página de favoritos
+    if (!starCheckbox.checked) {
+      const characterContainer = document.getElementById("carrusel");
+      const characterElement = document.querySelector(`.character[data-position="${characterId}"]`);
+      if (characterElement) {
+        characterContainer.removeChild(characterElement);
+      }
+    }
   }
+
 }
 
 
@@ -42,6 +52,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //cambia la carta en funcion de si hay cuenta Iniciada o no
   function characterToHtml(character, position) {
+    const cuentaIniciada = JSON.parse(localStorage.getItem("cuentaIniciada")) || { favoritos: [] };
+    const isFavorite = cuentaIniciada.favoritos.includes(character.id);
+    
     if (!cuentaIniciada) {
       return `
               <div class="character" data-position="${position}" data-status="${character.status}" data-species="${character.species}" data-gender="${character.gender}" onclick='openCharacterModal(${position})'>
@@ -54,6 +67,22 @@ document.addEventListener("DOMContentLoaded", function () {
               </div>
           `;
     } else {
+          
+    if (isFavorite) {
+      console.log("favorite");
+      return `
+      <div class="character" data-position="${position}" data-status="${character.status}" data-species="${character.species}" data-gender="${character.gender}" onclick='openCharacterModal(${position})'>
+          <div class="personaje">
+              <img src="${character.image}" />
+              <div class="descripPersonaje">
+                  <h4 class="nombre">${character.name}</h4>
+                  <input class="estrellafav" type="checkbox" id="star${character.id}" name="favs${character.id}" checked value="1" onclick='event.stopPropagation(); toggleFavorite(${character.id}) ' >
+                  <label for="star${character.id}"  id="star${character.id}label" class="starfav"  onclick='event.stopPropagation()'></label>
+              </div>
+          </div>
+      </div>
+  `;
+    } else{
       return `
               <div class="character" data-position="${position}" data-status="${character.status}" data-species="${character.species}" data-gender="${character.gender}" onclick='openCharacterModal(${position})'>
                   <div class="personaje">
@@ -66,7 +95,8 @@ document.addEventListener("DOMContentLoaded", function () {
                   </div>
               </div>
           `;
-    }
+    }}
+    
   }
 
   //cambia de barra en funcion de si hay cuenta Iniciada o no
@@ -131,11 +161,17 @@ document.addEventListener("DOMContentLoaded", function () {
   //Renderiza todos los personajes en el div carrusel segun el la estructura de las cartas
   function renderAllCharacters(characters) {
     let container = document.getElementById("carrusel");
+    
     container.innerHTML = "";
+
     for (let i = 0; i < characters.length; i++) {
       const character = characters[i];
       container.innerHTML += characterToHtml(character, i);
+      
     }
+
+
+
   }
 
 
