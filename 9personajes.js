@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //cambia la carta en funcion de si hay cuenta Iniciada o no
   function characterToHtml(character, position) {
+    const isFavorite = cuentaIniciada && cuentaIniciada.favoritos && cuentaIniciada.favoritos.includes(character.id);
     if (!cuentaIniciada) {
       return `
               <div class="character" data-position="${position}" data-status="${character.status}" data-species="${character.species}" data-gender="${character.gender}" onclick='openCharacterModal(${position})'>
@@ -60,8 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
                       <img src="${character.image}" />
                       <div class="descripPersonaje">
                           <h4 class="nombre">${character.name}</h4>
-                          <input class="estrellafav" type="checkbox" id="star${character.id}" name="favs${character.id}" value="1" onclick='event.stopPropagation(); toggleFavorite(${character.id})' >
-                          <label for="star${character.id}"  id="star${character.id}label" class="starfav"  onclick='event.stopPropagation()'></label>
+                          <input class="estrellafav" type="checkbox" id="star${character.id}" name="favs${character.id}" value="1" onclick='event.stopPropagation(); toggleFavorite(${character.id})' ${isFavorite ? 'checked' : ''}>
+                        <label for="star${character.id}"  id="star${character.id}label" class="starfav" onclick='event.stopPropagation()'></label>
                       </div>
                   </div>
               </div>
